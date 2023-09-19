@@ -10,28 +10,28 @@ final class CatalogItemTest extends TestCase {
 	public function testConstructor(): void {
         $connector = new Connector();
 
-		$aimbpubqen = new SuppliedProduct(connector: $connector, semanticId: "http://base.com/qdtxnbaymu");
+		$rscpehygvw = new TechnicalProduct(connector: $connector, semanticId: "http://base.com/mpitzkyypr");
 		
 		
-		$isdfemdeer = array(new Offer(connector: $connector, semanticId: "http://base.com/cwyrmwlrpu"));
-		$ipmbfcjzqf = array(new Catalog(connector: $connector, semanticId: "http://base.com/xvnhiohgrq"));
+		$jdxrzjcdzy = array(new Offer(connector: $connector, semanticId: "http://base.com/kilvwqpptj"));
+		$ggwrwbozmp = array(new Catalog(connector: $connector, semanticId: "http://base.com/wzaotbxmdn"));
 
         $obj = new CatalogItem(
             connector: $connector,
         	semanticId: "http://example.org/obj",
-        	product: $aimbpubqen,
-        	sku: "rnihtenajo",
-        	stockLimitation: 0.7117032,
-        	offers: $isdfemdeer,
-        	catalogs: $ipmbfcjzqf
+        	product: $rscpehygvw,
+        	sku: "pwjdinhwna",
+        	stockLimitation: 0.9194131,
+        	offers: $jdxrzjcdzy,
+        	catalogs: $ggwrwbozmp
         );
 
         $this->assertSame("http://example.org/obj", $obj->getSemanticId());
-		$this->assertSame($aimbpubqen, $obj->getOfferedProduct());
-		$this->assertSame("rnihtenajo", $obj->getSku());
-		$this->assertSame(0.7117032, $obj->getStockLimitation());
-		$this->assertSame($isdfemdeer, $obj->getOfferers());
-		$this->assertSame($ipmbfcjzqf, $obj->getCatalogs());
+		$this->assertSame($rscpehygvw, $obj->getOfferedProduct());
+		$this->assertSame("pwjdinhwna", $obj->getSku());
+		$this->assertSame(0.9194131, $obj->getStockLimitation());
+		$this->assertSame($jdxrzjcdzy, $obj->getOfferers());
+		$this->assertSame($ggwrwbozmp, $obj->getCatalogs());
     }
 
 	public function testGetSet(): void {
@@ -43,29 +43,29 @@ final class CatalogItemTest extends TestCase {
         );
 
 		
-		$tqbpefyuag = new Catalog(connector: $connector, semanticId: "http://base.com/vvtqehwukv");
-		$obj->registerInCatalog($tqbpefyuag);
-		$this->assertSame([$tqbpefyuag], $obj->getCatalogs());
-		
-		$ytbnajomxg = new SuppliedProduct(connector: $connector, semanticId: "http://base.com/esmidskumc");
-		$obj->setOfferedProduct($ytbnajomxg);
-		$this->assertSame($ytbnajomxg, $obj->getOfferedProduct());
+		$zvpnfqdumq = new Offer(connector: $connector, semanticId: "http://base.com/csvsbnhfnv");
+		$obj->addOffer($zvpnfqdumq);
+		$this->assertSame([$zvpnfqdumq], $obj->getOfferers());
 		
 		
-		
-		$obj->setStockLimitation(0.012362063);
-		$this->assertSame(0.012362063, $obj->getStockLimitation());
+		$obj->setSku("xtbgnwatmh");
+		$this->assertSame("xtbgnwatmh", $obj->getSku());
 		
 		
 		
-		$obj->setSku("asqgocokuo");
-		$this->assertSame("asqgocokuo", $obj->getSku());
+		$ghskayelxy = new Catalog(connector: $connector, semanticId: "http://base.com/xatcarqwaf");
+		$obj->registerInCatalog($ghskayelxy);
+		$this->assertSame([$ghskayelxy], $obj->getCatalogs());
 		
 		
+		$obj->setStockLimitation(0.4993915);
+		$this->assertSame(0.4993915, $obj->getStockLimitation());
 		
-		$hmszriuofu = new Offer(connector: $connector, semanticId: "http://base.com/devsgzwzle");
-		$obj->addOffer($hmszriuofu);
-		$this->assertSame([$hmszriuofu], $obj->getOfferers());
+		
+		$martbkogri = new TechnicalProduct(connector: $connector, semanticId: "http://base.com/obkfkudkex");
+		$obj->setOfferedProduct($martbkogri);
+		$this->assertSame($martbkogri, $obj->getOfferedProduct());
+		
 		
     }
 
@@ -75,11 +75,11 @@ final class CatalogItemTest extends TestCase {
 		$obj = new CatalogItem(
 		    connector: $connector,
 			semanticId: "http://example.org/obj",
-			product: $aimbpubqen,
-			sku: "rnihtenajo",
-			stockLimitation: 0.7117032,
-			offers: $isdfemdeer,
-			catalogs: $ipmbfcjzqf
+			product: $rscpehygvw,
+			sku: "pwjdinhwna",
+			stockLimitation: 0.9194131,
+			offers: $jdxrzjcdzy,
+			catalogs: $ggwrwbozmp
 		);
 
 		$export = $connector->export([$obj]);

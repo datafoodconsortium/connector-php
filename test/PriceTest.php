@@ -12,20 +12,20 @@ final class PriceTest extends TestCase {
 
 		
 		
-		$hdjkfqdnzp = new SKOSConcept(connector: $connector, semanticId: "http://base.com/pledvbhsyc");
+		$enptqdodxm = new SKOSConcept(connector: $connector, semanticId: "http://base.com/yglpcsixri");
 
         $obj = new Price(
             connector: $connector,
         	
-        	value: 0.28559244,
-        	vatRate: 0.98041385,
-        	unit: $hdjkfqdnzp
+        	value: 0.90167844,
+        	vatRate: 0.30123216,
+        	unit: $enptqdodxm
         );
 
         
-		$this->assertSame(0.28559244, $obj->getQuantityValue());
-		$this->assertSame(0.98041385, $obj->getVatRate());
-		$this->assertSame($hdjkfqdnzp, $obj->getQuantityUnit());
+		$this->assertSame(0.90167844, $obj->getQuantityValue());
+		$this->assertSame(0.30123216, $obj->getVatRate());
+		$this->assertSame($enptqdodxm, $obj->getQuantityUnit());
     }
 
 	public function testGetSet(): void {
@@ -35,19 +35,19 @@ final class PriceTest extends TestCase {
             connector: $connector
         );
 
-		
-		$obj->setVatRate(0.040436566);
-		$this->assertSame(0.040436566, $obj->getVatRate());
-		
-		
-		$yuobjwfazp = new SKOSConcept(connector: $connector, semanticId: "http://base.com/gnjfzsaujj");
-		$obj->setQuantityUnit($yuobjwfazp);
-		$this->assertSame($yuobjwfazp, $obj->getQuantityUnit());
+		$gjcnuubkmj = new SKOSConcept(connector: $connector, semanticId: "http://base.com/jfeafwvsqr");
+		$obj->setQuantityUnit($gjcnuubkmj);
+		$this->assertSame($gjcnuubkmj, $obj->getQuantityUnit());
 		
 		
 		
-		$obj->setQuantityValue(0.83337075);
-		$this->assertSame(0.83337075, $obj->getQuantityValue());
+		$obj->setVatRate(0.5887325);
+		$this->assertSame(0.5887325, $obj->getVatRate());
+		
+		
+		
+		$obj->setQuantityValue(0.49470216);
+		$this->assertSame(0.49470216, $obj->getQuantityValue());
 		
 		
     }
@@ -58,9 +58,9 @@ final class PriceTest extends TestCase {
 		$obj = new Price(
 		    connector: $connector,
 			
-			value: 0.28559244,
-			vatRate: 0.98041385,
-			unit: $hdjkfqdnzp
+			value: 0.90167844,
+			vatRate: 0.30123216,
+			unit: $enptqdodxm
 		);
 
 		$export = $connector->export([$obj]);

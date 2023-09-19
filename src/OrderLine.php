@@ -34,7 +34,7 @@ class OrderLine extends SemanticObject implements IOrderLine {
 	protected IConnector $connector;
 
 	public function __construct(IConnector $connector, string $semanticId = null, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, float $quantity = null, IPrice $price = null, IOffer $offer = null, IOrder $order = null, bool $doNotStore = false) {
-		$type = "dfc:OrderLine";
+		$type = "dfc-b:OrderLine";
 		
 		if ($other) {
 			parent::__construct(semantizer: $connector->getSemantizer(), semanticId: $semanticId, resource: $resource, other: $other, doNotStore: $doNotStore);
@@ -51,62 +51,62 @@ class OrderLine extends SemanticObject implements IOrderLine {
 		if ($order) { $this->setOrder($order); }
 	}
 
-	public function getPrice(): IPrice
+	public function setDescription(string $description): void {
+		$this->setSemanticProperty("dfc-b:description", $description);
+	}
+	
+
+	public function getDescription(): string 
 	 {
-		return $this->getSemanticProperty("dfc:hasPrice");
+		return $this->getSemanticProperty("dfc-b:description");
+		
+	}
+	
+	public function getOrder(): IOrder
+	 {
+		return $this->getSemanticProperty("dfc-b:partOf");
 		
 	}
 	
 
-	public function getOrder(): IOrder
-	 {
-		return $this->getSemanticProperty("dfc:partOf");
-		
+	public function setOrder(IOrder $order): void {
+		$this->setSemanticProperty("dfc-b:partOf", $order);
+	}
+	
+
+	public function setPrice(IPrice $price): void {
+		$this->setSemanticProperty("dfc-b:hasPrice", $price);
 	}
 	
 
 	public function setQuantity(float $quantity): void {
-		$this->setSemanticProperty("dfc:quantity", $quantity);
+		$this->setSemanticProperty("dfc-b:quantity", $quantity);
 	}
 	
 
 	public function getQuantity(): float 
 	 {
-		return $this->getSemanticProperty("dfc:quantity");
+		return $this->getSemanticProperty("dfc-b:quantity");
+		
+	}
+	
+
+	public function setOffer(IOffer $offer): void {
+		$this->setSemanticProperty("dfc-b:concerns", $offer);
+	}
+	
+
+	public function getPrice(): IPrice
+	 {
+		return $this->getSemanticProperty("dfc-b:hasPrice");
 		
 	}
 	
 
 	public function getOffer(): IOffer
 	 {
-		return $this->getSemanticProperty("dfc:concerns");
+		return $this->getSemanticProperty("dfc-b:concerns");
 		
-	}
-	
-
-	public function setOffer(IOffer $offer): void {
-		$this->setSemanticProperty("dfc:concerns", $offer);
-	}
-	
-
-	public function setPrice(IPrice $price): void {
-		$this->setSemanticProperty("dfc:hasPrice", $price);
-	}
-	
-
-	public function setOrder(IOrder $order): void {
-		$this->setSemanticProperty("dfc:partOf", $order);
-	}
-	
-	public function getDescription(): string 
-	 {
-		return $this->getSemanticProperty("dfc:description");
-		
-	}
-	
-
-	public function setDescription(string $description): void {
-		$this->setSemanticProperty("dfc:description", $description);
 	}
 	
 

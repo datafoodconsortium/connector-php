@@ -33,7 +33,7 @@ class PhysicalCharacteristic extends Characteristic implements IPhysicalCharacte
 	
 
 	public function __construct(IConnector $connector, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, ISKOSConcept $unit = null, float $value = null, ISKOSConcept $physicalDimension = null) {
-		$type = $semanticType? $semanticType: "dfc:PhysicalCharacteristic";
+		$type = $semanticType? $semanticType: "dfc-b:PhysicalCharacteristic";
 		
 		if ($other) {
 			parent::__construct(connector: $connector, resource: $resource, other: $other);
@@ -49,13 +49,13 @@ class PhysicalCharacteristic extends Characteristic implements IPhysicalCharacte
 
 	public function getQuantityDimension(): ISKOSConcept
 	 {
-		return $this->getSemanticProperty("dfc:hasPhysicalDimension");
+		return $this->getSemanticProperty("dfc-b:hasPhysicalDimension");
 		
 	}
 	
 
 	public function setQuantityDimension(ISKOSConcept $quantityDimension): void {
-		$this->setSemanticProperty("dfc:hasPhysicalDimension", $quantityDimension);
+		$this->setSemanticProperty("dfc-b:hasPhysicalDimension", $quantityDimension);
 	}
 	
 

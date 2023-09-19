@@ -34,7 +34,7 @@ class CatalogItem extends SemanticObject implements ICatalogItem {
 	protected IConnector $connector;
 
 	public function __construct(IConnector $connector, string $semanticId = null, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, IDefinedProduct $product = null, string $sku = null, float $stockLimitation = null, Array $offers = null, Array $catalogs = null, bool $doNotStore = false) {
-		$type = "dfc:CatalogItem";
+		$type = "dfc-b:CatalogItem";
 		
 		if ($other) {
 			parent::__construct(semantizer: $connector->getSemantizer(), semanticId: $semanticId, resource: $resource, other: $other, doNotStore: $doNotStore);
@@ -52,60 +52,60 @@ class CatalogItem extends SemanticObject implements ICatalogItem {
 		if ($catalogs) { foreach ($catalogs as $e) { $this->registerInCatalog($e); } }
 	}
 
-	public function getStockLimitation(): float 
-	 {
-		return $this->getSemanticProperty("dfc:stockLimitation");
-		
+	public function setSku(string $sku): void {
+		$this->setSemanticProperty("dfc-b:sku", $sku);
 	}
 	
 
-	public function setStockLimitation(float $stockLimitation): void {
-		$this->setSemanticProperty("dfc:stockLimitation", $stockLimitation);
-	}
-	
-	public function registerInCatalog(ICatalog $repository): void {
-		$this->addSemanticPropertyReference("dfc:listedIn", $repository);
-	}
-	
-
-	public function getCatalogs(): Array
+	public function getSku(): string 
 	 {
-		return $this->getSemanticPropertyAll("dfc:listedIn");
+		return $this->getSemanticProperty("dfc-b:sku");
 		
 	}
 	
 	public function addOffer(IOffer $offer): void {
-		$this->addSemanticPropertyReference("dfc:offeredThrough", $offer);
-	}
-	
-
-	public function setOfferedProduct(IDefinedProduct $offeredProduct): void {
-		$this->setSemanticProperty("dfc:references", $offeredProduct);
-	}
-	
-
-	public function getOfferedProduct(): IDefinedProduct
-	 {
-		return $this->getSemanticProperty("dfc:references");
-		
+		$this->addSemanticPropertyReference("dfc-b:offeredThrough", $offer);
 	}
 	
 
 	public function getOfferers(): Array
 	 {
-		return $this->getSemanticPropertyAll("dfc:offeredThrough");
-		
-	}
-	
-	public function getSku(): string 
-	 {
-		return $this->getSemanticProperty("dfc:sku");
+		return $this->getSemanticPropertyAll("dfc-b:offeredThrough");
 		
 	}
 	
 
-	public function setSku(string $sku): void {
-		$this->setSemanticProperty("dfc:sku", $sku);
+	public function setOfferedProduct(IDefinedProduct $offeredProduct): void {
+		$this->setSemanticProperty("dfc-b:references", $offeredProduct);
+	}
+	
+
+	public function getOfferedProduct(): IDefinedProduct
+	 {
+		return $this->getSemanticProperty("dfc-b:references");
+		
+	}
+	
+	public function setStockLimitation(float $stockLimitation): void {
+		$this->setSemanticProperty("dfc-b:stockLimitation", $stockLimitation);
+	}
+	
+
+	public function getStockLimitation(): float 
+	 {
+		return $this->getSemanticProperty("dfc-b:stockLimitation");
+		
+	}
+	
+	public function getCatalogs(): Array
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:listedIn");
+		
+	}
+	
+
+	public function registerInCatalog(ICatalog $repository): void {
+		$this->addSemanticPropertyReference("dfc-b:listedIn", $repository);
 	}
 	
 

@@ -42,20 +42,20 @@ abstract class Agent extends SemanticObject implements IAgent {
 		if ($localizations) { foreach ($localizations as $e) { $this->addLocalization($e); } }
 	}
 
-	public function removeLocalization(IAddress $localization): void {
-		throw new Error("Not yet implemented.");
-	}
-	
-
 	public function getLocalizations(): Array
 	 {
-		return $this->getSemanticPropertyAll("dfc:hasAddress");
+		return $this->getSemanticPropertyAll("dfc-b:hasAddress");
 		
 	}
 	
 
 	public function addLocalization(IAddress $localization): void {
-		$this->addSemanticPropertyReference("dfc:hasAddress", $localization);
+		$this->addSemanticPropertyReference("dfc-b:hasAddress", $localization);
+	}
+	
+
+	public function removeLocalization(IAddress $localization): void {
+		throw new Error("Not yet implemented.");
 	}
 	
 

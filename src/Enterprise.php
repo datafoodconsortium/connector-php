@@ -29,11 +29,11 @@ namespace DataFoodConsortium\Connector;
 use \VirtualAssembly\Semantizer\SemanticObject;
 use \VirtualAssembly\Semantizer\Semanticable;
 
-class Enterprise extends Agent implements IEnterprise, ProductSupplier, Onboardable {
+class Enterprise extends Agent implements ProductSupplier, IEnterprise, Onboardable {
 	
 
 	public function __construct(IConnector $connector, string $semanticId = null, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, Array $localizations = null, string $description = null, string $vatNumber = null, Array $customerCategories = null, Array $catalogs = null, Array $catalogItems = null, Array $suppliedProducts = null, Array $technicalProducts = null, bool $doNotStore = false) {
-		$type = "dfc:Enterprise";
+		$type = "dfc-b:Enterprise";
 		
 		if ($other) {
 			parent::__construct(connector: $connector, semanticId: $semanticId, resource: $resource, other: $other, doNotStore: $doNotStore);
@@ -53,30 +53,25 @@ class Enterprise extends Agent implements IEnterprise, ProductSupplier, Onboarda
 		if ($technicalProducts) { foreach ($technicalProducts as $e) { $this->proposeTechnicalProducts($e); } }
 	}
 
-	public function getManagedCatalogItems(): Array
+	public function getVatNumber(): string 
 	 {
-		return $this->getSemanticPropertyAll("dfc:manages");
+		return $this->getSemanticProperty("dfc-b:VATnumber");
 		
 	}
 	
 
-	public function unmanageCatalogItem(ICatalogItem $catalogItem): void {
-		throw new Error("Not yet implemented.");
-	}
-	
-
-	public function manageCatalogItem(ICatalogItem $catalogItem): void {
-		$this->addSemanticPropertyReference("dfc:manages", $catalogItem);
+	public function setVatNumber(string $vatNumber): void {
+		$this->setSemanticProperty("dfc-b:VATnumber", $vatNumber);
 	}
 	
 	public function maintainCatalog(ICatalog $catalog): void {
-		$this->addSemanticPropertyReference("dfc:maintains", $catalog);
+		$this->addSemanticPropertyReference("dfc-b:maintains", $catalog);
 	}
 	
 
 	public function getMaintainedCatalogs(): Array
 	 {
-		return $this->getSemanticPropertyAll("dfc:maintains");
+		return $this->getSemanticPropertyAll("dfc-b:maintains");
 		
 	}
 	
@@ -85,37 +80,42 @@ class Enterprise extends Agent implements IEnterprise, ProductSupplier, Onboarda
 		throw new Error("Not yet implemented.");
 	}
 	
-	public function addCustomerCategory(ICustomerCategory $customerCategory): void {
-		$this->addSemanticPropertyReference("dfc:defines", $customerCategory);
+	public function setDescription(string $description): void {
+		$this->setSemanticProperty("dfc-b:hasDescription", $description);
 	}
 	
 
-	public function getCustomerCategories(): Array
-	 {
-		return $this->getSemanticPropertyAll("dfc:defines");
-		
-	}
-	
-	public function setVatNumber(string $vatNumber): void {
-		$this->setSemanticProperty("dfc:VATnumber", $vatNumber);
-	}
-	
-
-	public function getVatNumber(): string 
-	 {
-		return $this->getSemanticProperty("dfc:VATnumber");
-		
-	}
-	
 	public function getDescription(): string 
 	 {
-		return $this->getSemanticProperty("dfc:hasDescription");
+		return $this->getSemanticProperty("dfc-b:hasDescription");
+		
+	}
+	
+	public function getCustomerCategories(): Array
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:defines");
 		
 	}
 	
 
-	public function setDescription(string $description): void {
-		$this->setSemanticProperty("dfc:hasDescription", $description);
+	public function addCustomerCategory(ICustomerCategory $customerCategory): void {
+		$this->addSemanticPropertyReference("dfc-b:defines", $customerCategory);
+	}
+	
+	public function getSuppliedProducts(): Array
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:supplies");
+		
+	}
+	
+
+	public function supplyProduct(ISuppliedProduct $suppliedProduct): void {
+		$this->addSemanticPropertyReference("dfc-b:supplies", $suppliedProduct);
+	}
+	
+
+	public function unsupplyProduct(ISuppliedProduct $suppliedProduct): void {
+		throw new Error("Not yet implemented.");
 	}
 	
 	public function unproposeTechnicalProducts(ITechnicalProduct $technicalProducts): void {
@@ -123,31 +123,31 @@ class Enterprise extends Agent implements IEnterprise, ProductSupplier, Onboarda
 	}
 	
 
-	public function proposeTechnicalProducts(ITechnicalProduct $technicalProducts): void {
-		$this->addSemanticPropertyReference("dfc:proposes", $technicalProducts);
-	}
-	
-
 	public function getProposedTechnicalProducts(): Array
 	 {
-		return $this->getSemanticPropertyAll("dfc:proposes");
-		
-	}
-	
-	public function supplyProduct(ISuppliedProduct $suppliedProduct): void {
-		$this->addSemanticPropertyReference("dfc:supplies", $suppliedProduct);
-	}
-	
-
-	public function getSuppliedProducts(): Array
-	 {
-		return $this->getSemanticPropertyAll("dfc:supplies");
+		return $this->getSemanticPropertyAll("dfc-b:proposes");
 		
 	}
 	
 
-	public function unsupplyProduct(ISuppliedProduct $suppliedProduct): void {
+	public function proposeTechnicalProducts(ITechnicalProduct $technicalProducts): void {
+		$this->addSemanticPropertyReference("dfc-b:proposes", $technicalProducts);
+	}
+	
+	public function manageCatalogItem(ICatalogItem $catalogItem): void {
+		$this->addSemanticPropertyReference("dfc-b:manages", $catalogItem);
+	}
+	
+
+	public function unmanageCatalogItem(ICatalogItem $catalogItem): void {
 		throw new Error("Not yet implemented.");
+	}
+	
+
+	public function getManagedCatalogItems(): Array
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:manages");
+		
 	}
 	
 

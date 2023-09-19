@@ -28,7 +28,7 @@ namespace DataFoodConsortium\Connector;
 
 use \VirtualAssembly\Semantizer\Semanticable;
 
-interface IDefinedProduct extends Semanticable, Proposable, Certifiable, Manufacturable, Describable, Nameable{
+interface IDefinedProduct extends Semanticable, Nameable, Describable, Manufacturable, Proposable, Certifiable{
 
 	public function addClaim(ISKOSConcept $claim): void;
 	public function getQuantity(): IQuantity

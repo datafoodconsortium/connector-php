@@ -28,7 +28,7 @@ namespace DataFoodConsortium\Connector;
 
 use \VirtualAssembly\Semantizer\Semanticable;
 
-interface IEnterprise extends Semanticable, CatalogMaintainer, CatalogItemManager, ProductSupplier, TechnicalProductProposer, Onboardable, Describable, Taxable{
+interface IEnterprise extends Semanticable, Describable, CatalogMaintainer, CatalogItemManager, ProductSupplier, Taxable, TechnicalProductProposer, Onboardable{
 
 
 }

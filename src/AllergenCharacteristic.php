@@ -33,7 +33,7 @@ class AllergenCharacteristic extends Characteristic implements IAllergenCharacte
 	
 
 	public function __construct(IConnector $connector, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, ISKOSConcept $unit = null, float $value = null, ISKOSConcept $allergenDimension = null) {
-		$type = $semanticType? $semanticType: "dfc:AllergenCharacteristic";
+		$type = $semanticType? $semanticType: "dfc-b:AllergenCharacteristic";
 		
 		if ($other) {
 			parent::__construct(connector: $connector, resource: $resource, other: $other);
@@ -49,13 +49,13 @@ class AllergenCharacteristic extends Characteristic implements IAllergenCharacte
 
 	public function getQuantityDimension(): ISKOSConcept
 	 {
-		return $this->getSemanticProperty("dfc:hasAllergenDimension");
+		return $this->getSemanticProperty("dfc-b:hasAllergenDimension");
 		
 	}
 	
 
 	public function setQuantityDimension(ISKOSConcept $quantityDimension): void {
-		$this->setSemanticProperty("dfc:hasAllergenDimension", $quantityDimension);
+		$this->setSemanticProperty("dfc-b:hasAllergenDimension", $quantityDimension);
 	}
 	
 

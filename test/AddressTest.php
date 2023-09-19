@@ -18,17 +18,17 @@ final class AddressTest extends TestCase {
         $obj = new Address(
             connector: $connector,
         	semanticId: "http://example.org/obj",
-        	street: "mcktboibfz",
-        	postalCode: "jlchwargva",
-        	city: "xyyftdzemf",
-        	country: "hhrvpivaho"
+        	street: "ytjlqvwhdb",
+        	postalCode: "fzlfqvpjmg",
+        	city: "xhzddzffrq",
+        	country: "ekgwpxbqui"
         );
 
         $this->assertSame("http://example.org/obj", $obj->getSemanticId());
-		$this->assertSame("mcktboibfz", $obj->getStreet());
-		$this->assertSame("jlchwargva", $obj->getPostalCode());
-		$this->assertSame("xyyftdzemf", $obj->getCity());
-		$this->assertSame("hhrvpivaho", $obj->getCountry());
+		$this->assertSame("ytjlqvwhdb", $obj->getStreet());
+		$this->assertSame("fzlfqvpjmg", $obj->getPostalCode());
+		$this->assertSame("xhzddzffrq", $obj->getCity());
+		$this->assertSame("ekgwpxbqui", $obj->getCountry());
     }
 
 	public function testGetSet(): void {
@@ -40,23 +40,23 @@ final class AddressTest extends TestCase {
         );
 
 		
-		$obj->setCountry("vshdythkln");
-		$this->assertSame("vshdythkln", $obj->getCountry());
+		$obj->setCountry("rxbczrqwmu");
+		$this->assertSame("rxbczrqwmu", $obj->getCountry());
 		
 		
 		
-		$obj->setCity("yxyztbrucn");
-		$this->assertSame("yxyztbrucn", $obj->getCity());
+		$obj->setCity("ndxwcndzmn");
+		$this->assertSame("ndxwcndzmn", $obj->getCity());
 		
 		
 		
-		$obj->setPostalCode("balqzulvwj");
-		$this->assertSame("balqzulvwj", $obj->getPostalCode());
+		$obj->setStreet("rsqcwzjcot");
+		$this->assertSame("rsqcwzjcot", $obj->getStreet());
 		
 		
 		
-		$obj->setStreet("betcqlvela");
-		$this->assertSame("betcqlvela", $obj->getStreet());
+		$obj->setPostalCode("ukbhxiejre");
+		$this->assertSame("ukbhxiejre", $obj->getPostalCode());
 		
 		
     }
@@ -67,10 +67,10 @@ final class AddressTest extends TestCase {
 		$obj = new Address(
 		    connector: $connector,
 			semanticId: "http://example.org/obj",
-			street: "mcktboibfz",
-			postalCode: "jlchwargva",
-			city: "xyyftdzemf",
-			country: "hhrvpivaho"
+			street: "ytjlqvwhdb",
+			postalCode: "fzlfqvpjmg",
+			city: "xhzddzffrq",
+			country: "ekgwpxbqui"
 		);
 
 		$export = $connector->export([$obj]);

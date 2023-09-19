@@ -34,7 +34,7 @@ class Offer extends SemanticObject implements IOffer {
 	protected IConnector $connector;
 
 	public function __construct(IConnector $connector, string $semanticId = null, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, ICatalogItem $offeredItem = null, ICustomerCategory $offeredTo = null, IPrice $price = null, float $stockLimitation = null, bool $doNotStore = false) {
-		$type = "dfc:Offer";
+		$type = "dfc-b:Offer";
 		
 		if ($other) {
 			parent::__construct(semantizer: $connector->getSemantizer(), semanticId: $semanticId, resource: $resource, other: $other, doNotStore: $doNotStore);
@@ -51,48 +51,48 @@ class Offer extends SemanticObject implements IOffer {
 		if ($stockLimitation || $stockLimitation === 0) { $this->setStockLimitation($stockLimitation); }
 	}
 
-	public function setPrice(IPrice $price): void {
-		$this->setSemanticProperty("dfc:hasPrice", $price);
-	}
-	
-
 	public function getPrice(): IPrice
 	 {
-		return $this->getSemanticProperty("dfc:hasPrice");
-		
-	}
-	
-	public function getStockLimitation(): float 
-	 {
-		return $this->getSemanticProperty("dfc:stockLimitation");
+		return $this->getSemanticProperty("dfc-b:hasPrice");
 		
 	}
 	
 
-	public function setStockLimitation(float $stockLimitation): void {
-		$this->setSemanticProperty("dfc:stockLimitation", $stockLimitation);
+	public function setPrice(IPrice $price): void {
+		$this->setSemanticProperty("dfc-b:hasPrice", $price);
 	}
 	
-	public function setOfferedItem(ICatalogItem $offeredItem): void {
-		$this->setSemanticProperty("dfc:offeredItem", $offeredItem);
-	}
-	
-
 	public function setCustomerCategory(ICustomerCategory $customerCategory): void {
-		$this->setSemanticProperty("dfc:offeredTo", $customerCategory);
+		$this->setSemanticProperty("dfc-b:offeredTo", $customerCategory);
+	}
+	
+
+	public function setOfferedItem(ICatalogItem $offeredItem): void {
+		$this->setSemanticProperty("dfc-b:offeredItem", $offeredItem);
 	}
 	
 
 	public function getOfferedItem(): ICatalogItem
 	 {
-		return $this->getSemanticProperty("dfc:offeredItem");
+		return $this->getSemanticProperty("dfc-b:offeredItem");
 		
 	}
 	
 
 	public function getCustomerCategory(): ICustomerCategory
 	 {
-		return $this->getSemanticProperty("dfc:offeredTo");
+		return $this->getSemanticProperty("dfc-b:offeredTo");
+		
+	}
+	
+	public function setStockLimitation(float $stockLimitation): void {
+		$this->setSemanticProperty("dfc-b:stockLimitation", $stockLimitation);
+	}
+	
+
+	public function getStockLimitation(): float 
+	 {
+		return $this->getSemanticProperty("dfc-b:stockLimitation");
 		
 	}
 	

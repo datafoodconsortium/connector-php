@@ -28,7 +28,7 @@ namespace DataFoodConsortium\Connector;
 
 use \VirtualAssembly\Semantizer\Semanticable;
 
-interface ICatalogItem extends Semanticable, Offerable, Catalogable, Stockable{
+interface ICatalogItem extends Semanticable, Stockable, Offerable, Catalogable{
 
 	public function getSku(): string 
 	;

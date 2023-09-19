@@ -34,7 +34,7 @@ class QuantitativeValue extends SemanticObjectAnonymous implements Quantifiable 
 	protected IConnector $connector;
 
 	public function __construct(IConnector $connector, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, ISKOSConcept $unit = null, float $value = null) {
-		$type = $semanticType? $semanticType: "dfc:QuantitativeValue";
+		$type = $semanticType? $semanticType: "dfc-b:QuantitativeValue";
 		
 		if ($other) {
 			parent::__construct(semantizer: $connector->getSemantizer(), resource: $resource, other: $other);
@@ -49,26 +49,26 @@ class QuantitativeValue extends SemanticObjectAnonymous implements Quantifiable 
 		if ($value || $value === 0) { $this->setQuantityValue($value); }
 	}
 
-	public function getQuantityUnit(): ISKOSConcept
-	 {
-		return $this->getSemanticProperty("dfc:hasUnit");
-		
-	}
-	
-
-	public function setQuantityUnit(ISKOSConcept $quantityUnit): void {
-		$this->setSemanticProperty("dfc:hasUnit", $quantityUnit);
-	}
-	
-
 	public function setQuantityValue(float $quantityValue): void {
-		$this->setSemanticProperty("dfc:value", $quantityValue);
+		$this->setSemanticProperty("dfc-b:value", $quantityValue);
 	}
 	
 
 	public function getQuantityValue(): float 
 	 {
-		return $this->getSemanticProperty("dfc:value");
+		return $this->getSemanticProperty("dfc-b:value");
+		
+	}
+	
+
+	public function setQuantityUnit(ISKOSConcept $quantityUnit): void {
+		$this->setSemanticProperty("dfc-b:hasUnit", $quantityUnit);
+	}
+	
+
+	public function getQuantityUnit(): ISKOSConcept
+	 {
+		return $this->getSemanticProperty("dfc-b:hasUnit");
 		
 	}
 	

@@ -34,7 +34,7 @@ class SaleSession extends SemanticObject implements ISaleSession {
 	protected IConnector $connector;
 
 	public function __construct(IConnector $connector, string $semanticId = null, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, string $beginDate = null, string $endDate = null, float $quantity = null, Array $offers = null, bool $doNotStore = false) {
-		$type = "dfc:SaleSession";
+		$type = "dfc-b:SaleSession";
 		
 		if ($other) {
 			parent::__construct(semantizer: $connector->getSemantizer(), semanticId: $semanticId, resource: $resource, other: $other, doNotStore: $doNotStore);
@@ -51,50 +51,50 @@ class SaleSession extends SemanticObject implements ISaleSession {
 		if ($offers) { foreach ($offers as $e) { $this->addOffer($e); } }
 	}
 
-	public function getBeginDate(): string 
-	 {
-		return $this->getSemanticProperty("dfc:beginDate");
-		
-	}
-	
-
 	public function setBeginDate(string $beginDate): void {
-		$this->setSemanticProperty("dfc:beginDate", $beginDate);
+		$this->setSemanticProperty("dfc-b:beginDate", $beginDate);
 	}
 	
 
 	public function getEndDate(): string 
 	 {
-		return $this->getSemanticProperty("dfc:endDate");
+		return $this->getSemanticProperty("dfc-b:endDate");
+		
+	}
+	
+
+	public function getBeginDate(): string 
+	 {
+		return $this->getSemanticProperty("dfc-b:beginDate");
 		
 	}
 	
 
 	public function setEndDate(string $endDate): void {
-		$this->setSemanticProperty("dfc:endDate", $endDate);
+		$this->setSemanticProperty("dfc-b:endDate", $endDate);
 	}
 	
-	public function getOffers(): Array
-	 {
-		return $this->getSemanticPropertyAll("dfc:lists");
-		
+	public function setQuantity(float $quantity): void {
+		$this->setSemanticProperty("dfc-b:quantity", $quantity);
 	}
 	
 
 	public function getQuantity(): float 
 	 {
-		return $this->getSemanticProperty("dfc:quantity");
+		return $this->getSemanticProperty("dfc-b:quantity");
 		
 	}
 	
 
-	public function setQuantity(float $quantity): void {
-		$this->setSemanticProperty("dfc:quantity", $quantity);
+	public function getOffers(): Array
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:lists");
+		
 	}
 	
 
 	public function addOffer(IOffer $offer): void {
-		$this->addSemanticPropertyReference("dfc:lists", $offer);
+		$this->addSemanticPropertyReference("dfc-b:lists", $offer);
 	}
 	
 

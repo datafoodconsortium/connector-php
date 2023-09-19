@@ -10,22 +10,22 @@ final class NutrientCharacteristicTest extends TestCase {
 	public function testConstructor(): void {
         $connector = new Connector();
 
-		$eqpdzousqa = new SKOSConcept(connector: $connector, semanticId: "http://base.com/fevprimosj");
+		$kepnvzyxgg = new SKOSConcept(connector: $connector, semanticId: "http://base.com/lxrlarornj");
 		
-		$tgbajzpsjb = new SKOSConcept(connector: $connector, semanticId: "http://base.com/zzsgbgwcdm");
+		$bwkrrqbuzu = new SKOSConcept(connector: $connector, semanticId: "http://base.com/bfynuxncbm");
 
         $obj = new NutrientCharacteristic(
             connector: $connector,
         	
-        	unit: $eqpdzousqa,
-        	value: 0.018144667,
-        	nutrientDimension: $tgbajzpsjb
+        	unit: $kepnvzyxgg,
+        	value: 0.32755965,
+        	nutrientDimension: $bwkrrqbuzu
         );
 
         
-		$this->assertSame($eqpdzousqa, $obj->getQuantityUnit());
-		$this->assertSame(0.018144667, $obj->getQuantityValue());
-		$this->assertSame($tgbajzpsjb, $obj->getQuantityDimension());
+		$this->assertSame($kepnvzyxgg, $obj->getQuantityUnit());
+		$this->assertSame(0.32755965, $obj->getQuantityValue());
+		$this->assertSame($bwkrrqbuzu, $obj->getQuantityDimension());
     }
 
 	public function testGetSet(): void {
@@ -36,18 +36,18 @@ final class NutrientCharacteristicTest extends TestCase {
         );
 
 		
-		$obj->setQuantityValue(0.30436456);
-		$this->assertSame(0.30436456, $obj->getQuantityValue());
+		$obj->setQuantityValue(0.29035258);
+		$this->assertSame(0.29035258, $obj->getQuantityValue());
 		
 		
-		$xzsreqqxry = new SKOSConcept(connector: $connector, semanticId: "http://base.com/gnjfzsaujj");
-		$obj->setQuantityUnit($xzsreqqxry);
-		$this->assertSame($xzsreqqxry, $obj->getQuantityUnit());
+		$fdcnzmjwnt = new SKOSConcept(connector: $connector, semanticId: "http://base.com/zzbcwnovxl");
+		$obj->setQuantityDimension($fdcnzmjwnt);
+		$this->assertSame($fdcnzmjwnt, $obj->getQuantityDimension());
 		
 		
-		$lxmnmxqwqe = new SKOSConcept(connector: $connector, semanticId: "http://base.com/ohtfttjptt");
-		$obj->setQuantityDimension($lxmnmxqwqe);
-		$this->assertSame($lxmnmxqwqe, $obj->getQuantityDimension());
+		$ppqjedxgpk = new SKOSConcept(connector: $connector, semanticId: "http://base.com/jfeafwvsqr");
+		$obj->setQuantityUnit($ppqjedxgpk);
+		$this->assertSame($ppqjedxgpk, $obj->getQuantityUnit());
 		
 		
     }
@@ -58,9 +58,9 @@ final class NutrientCharacteristicTest extends TestCase {
 		$obj = new NutrientCharacteristic(
 		    connector: $connector,
 			
-			unit: $eqpdzousqa,
-			value: 0.018144667,
-			nutrientDimension: $tgbajzpsjb
+			unit: $kepnvzyxgg,
+			value: 0.32755965,
+			nutrientDimension: $bwkrrqbuzu
 		);
 
 		$export = $connector->export([$obj]);

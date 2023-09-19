@@ -12,23 +12,23 @@ final class PersonTest extends TestCase {
 
 		
 		
-		$ugcvzsfwec = array(new Address(connector: $connector, semanticId: "http://base.com/cabejfroqm"));
-		$ohsreakwtr = array(new Enterprise(connector: $connector, semanticId: "http://base.com/wiijracwgc"));
+		$vossdsghma = array(new Address(connector: $connector, semanticId: "http://base.com/nvzffatmox"));
+		$totrttazhr = array(new Enterprise(connector: $connector, semanticId: "http://base.com/wfwoolswgi"));
 
         $obj = new Person(
             connector: $connector,
         	semanticId: "http://example.org/obj",
-        	firstName: "ywqtqoxzeh",
-        	lastName: "shmdpywjqk",
-        	localizations: $ugcvzsfwec,
-        	organizations: $ohsreakwtr
+        	firstName: "drfcjejasa",
+        	lastName: "qcgyhecggo",
+        	localizations: $vossdsghma,
+        	organizations: $totrttazhr
         );
 
         $this->assertSame("http://example.org/obj", $obj->getSemanticId());
-		$this->assertSame("ywqtqoxzeh", $obj->getFirstName());
-		$this->assertSame("shmdpywjqk", $obj->getLastName());
-		$this->assertSame($ugcvzsfwec, $obj->getLocalizations());
-		$this->assertSame($ohsreakwtr, $obj->getAffiliatedOrganizations());
+		$this->assertSame("drfcjejasa", $obj->getFirstName());
+		$this->assertSame("qcgyhecggo", $obj->getLastName());
+		$this->assertSame($vossdsghma, $obj->getLocalizations());
+		$this->assertSame($totrttazhr, $obj->getAffiliatedOrganizations());
     }
 
 	public function testGetSet(): void {
@@ -40,24 +40,24 @@ final class PersonTest extends TestCase {
         );
 
 		
-		$obj->setFirstName("yojsgcznoq");
-		$this->assertSame("yojsgcznoq", $obj->getFirstName());
+		$obj->setLastName("oqylsxojfp");
+		$this->assertSame("oqylsxojfp", $obj->getLastName());
 		
 		
 		
-		$obj->setLastName("nuibttwimb");
-		$this->assertSame("nuibttwimb", $obj->getLastName());
+		$obj->setFirstName("bnoirputvh");
+		$this->assertSame("bnoirputvh", $obj->getFirstName());
 		
 		
 		
-		$dycgieexqg = new Address(connector: $connector, semanticId: "http://base.com/jcaxuioeja");
-		$obj->addLocalization($dycgieexqg);
-		$this->assertSame([$dycgieexqg], $obj->getLocalizations());
+		$tdzjudegvf = new Address(connector: $connector, semanticId: "http://base.com/fqjizhuayr");
+		$obj->addLocalization($tdzjudegvf);
+		$this->assertSame([$tdzjudegvf], $obj->getLocalizations());
 		
 		
-		$dalazlulhq = new Enterprise(connector: $connector, semanticId: "http://base.com/wkprxnnybw");
-		$obj->affiliateTo($dalazlulhq);
-		$this->assertSame([$dalazlulhq], $obj->getAffiliatedOrganizations());
+		$bvgoncrhga = new Enterprise(connector: $connector, semanticId: "http://base.com/nzmltjciui");
+		$obj->affiliateTo($bvgoncrhga);
+		$this->assertSame([$bvgoncrhga], $obj->getAffiliatedOrganizations());
 		
     }
 
@@ -67,10 +67,10 @@ final class PersonTest extends TestCase {
 		$obj = new Person(
 		    connector: $connector,
 			semanticId: "http://example.org/obj",
-			firstName: "ywqtqoxzeh",
-			lastName: "shmdpywjqk",
-			localizations: $ugcvzsfwec,
-			organizations: $ohsreakwtr
+			firstName: "drfcjejasa",
+			lastName: "qcgyhecggo",
+			localizations: $vossdsghma,
+			organizations: $totrttazhr
 		);
 
 		$export = $connector->export([$obj]);

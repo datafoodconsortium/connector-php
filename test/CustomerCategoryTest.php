@@ -15,11 +15,11 @@ final class CustomerCategoryTest extends TestCase {
         $obj = new CustomerCategory(
             connector: $connector,
         	semanticId: "http://example.org/obj",
-        	description: "vrlgdqvbcw"
+        	description: "sskovqlohh"
         );
 
         $this->assertSame("http://example.org/obj", $obj->getSemanticId());
-		$this->assertSame("vrlgdqvbcw", $obj->getDescription());
+		$this->assertSame("sskovqlohh", $obj->getDescription());
     }
 
 	public function testGetSet(): void {
@@ -31,8 +31,8 @@ final class CustomerCategoryTest extends TestCase {
         );
 
 		
-		$obj->setDescription("bqdmhlosic");
-		$this->assertSame("bqdmhlosic", $obj->getDescription());
+		$obj->setDescription("ggrrbnnovz");
+		$this->assertSame("ggrrbnnovz", $obj->getDescription());
 		
 		
     }
@@ -43,7 +43,7 @@ final class CustomerCategoryTest extends TestCase {
 		$obj = new CustomerCategory(
 		    connector: $connector,
 			semanticId: "http://example.org/obj",
-			description: "vrlgdqvbcw"
+			description: "sskovqlohh"
 		);
 
 		$export = $connector->export([$obj]);

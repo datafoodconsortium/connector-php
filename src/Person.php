@@ -33,7 +33,7 @@ class Person extends Agent implements IPerson {
 	
 
 	public function __construct(IConnector $connector, string $semanticId = null, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, string $firstName = null, string $lastName = null, Array $localizations = null, Array $organizations = null, bool $doNotStore = false) {
-		$type = "dfc:Person";
+		$type = "dfc-b:Person";
 		
 		if ($other) {
 			parent::__construct(connector: $connector, semanticId: $semanticId, resource: $resource, other: $other, doNotStore: $doNotStore);
@@ -49,43 +49,43 @@ class Person extends Agent implements IPerson {
 		if ($organizations) { foreach ($organizations as $e) { $this->affiliateTo($e); } }
 	}
 
-	public function leaveAffiliatedOrganization(IEnterprise $organization): void {
-		throw new Error("Not yet implemented.");
-	}
-	
-
 	public function getAffiliatedOrganizations(): Array
 	 {
-		return $this->getSemanticPropertyAll("dfc:affiliates");
+		return $this->getSemanticPropertyAll("dfc-b:affiliates");
 		
 	}
 	
 
 	public function affiliateTo(IEnterprise $organization): void {
-		$this->addSemanticPropertyReference("dfc:affiliates", $organization);
-	}
-	
-	public function getFirstName(): string 
-	 {
-		return $this->getSemanticProperty("dfc:firstName");
-		
+		$this->addSemanticPropertyReference("dfc-b:affiliates", $organization);
 	}
 	
 
-	public function setLastName(string $lastName): void {
-		$this->setSemanticProperty("dfc:familyName", $lastName);
+	public function leaveAffiliatedOrganization(IEnterprise $organization): void {
+		throw new Error("Not yet implemented.");
 	}
 	
-
 	public function getLastName(): string 
 	 {
-		return $this->getSemanticProperty("dfc:familyName");
+		return $this->getSemanticProperty("dfc-b:familyName");
 		
 	}
 	
 
 	public function setFirstName(string $firstName): void {
-		$this->setSemanticProperty("dfc:firstName", $firstName);
+		$this->setSemanticProperty("dfc-b:firstName", $firstName);
+	}
+	
+
+	public function getFirstName(): string 
+	 {
+		return $this->getSemanticProperty("dfc-b:firstName");
+		
+	}
+	
+
+	public function setLastName(string $lastName): void {
+		$this->setSemanticProperty("dfc-b:familyName", $lastName);
 	}
 	
 

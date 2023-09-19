@@ -34,7 +34,7 @@ class Address extends SemanticObject implements IAddress {
 	protected IConnector $connector;
 
 	public function __construct(IConnector $connector, string $semanticId = null, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, string $street = null, string $postalCode = null, string $city = null, string $country = null, bool $doNotStore = false) {
-		$type = "dfc:Address";
+		$type = "dfc-b:Address";
 		
 		if ($other) {
 			parent::__construct(semantizer: $connector->getSemantizer(), semanticId: $semanticId, resource: $resource, other: $other, doNotStore: $doNotStore);
@@ -51,51 +51,51 @@ class Address extends SemanticObject implements IAddress {
 		if ($country) { $this->setCountry($country); }
 	}
 
-	public function getPostalCode(): string 
+	public function getCity(): string 
 	 {
-		return $this->getSemanticProperty("dfc:hasPostalCode");
-		
-	}
-	
-
-	public function setStreet(string $street): void {
-		$this->setSemanticProperty("dfc:hasStreet", $street);
-	}
-	
-
-	public function setCountry(string $country): void {
-		$this->setSemanticProperty("dfc:hasCountry", $country);
-	}
-	
-
-	public function getCountry(): string 
-	 {
-		return $this->getSemanticProperty("dfc:hasCountry");
+		return $this->getSemanticProperty("dfc-b:hasCity");
 		
 	}
 	
 
 	public function setPostalCode(string $postalCode): void {
-		$this->setSemanticProperty("dfc:hasPostalCode", $postalCode);
+		$this->setSemanticProperty("dfc-b:hasPostalCode", $postalCode);
 	}
 	
 
-	public function getCity(): string 
+	public function getPostalCode(): string 
 	 {
-		return $this->getSemanticProperty("dfc:hasCity");
+		return $this->getSemanticProperty("dfc-b:hasPostalCode");
 		
 	}
 	
 
-	public function setCity(string $city): void {
-		$this->setSemanticProperty("dfc:hasCity", $city);
+	public function setStreet(string $street): void {
+		$this->setSemanticProperty("dfc-b:hasStreet", $street);
+	}
+	
+
+	public function setCountry(string $country): void {
+		$this->setSemanticProperty("dfc-b:hasCountry", $country);
 	}
 	
 
 	public function getStreet(): string 
 	 {
-		return $this->getSemanticProperty("dfc:hasStreet");
+		return $this->getSemanticProperty("dfc-b:hasStreet");
 		
+	}
+	
+
+	public function getCountry(): string 
+	 {
+		return $this->getSemanticProperty("dfc-b:hasCountry");
+		
+	}
+	
+
+	public function setCity(string $city): void {
+		$this->setSemanticProperty("dfc-b:hasCity", $city);
 	}
 	
 

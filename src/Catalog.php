@@ -34,7 +34,7 @@ class Catalog extends SemanticObject implements ICatalog {
 	protected IConnector $connector;
 
 	public function __construct(IConnector $connector, string $semanticId = null, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, Array $maintainers = null, Array $items = null, bool $doNotStore = false) {
-		$type = "dfc:Catalog";
+		$type = "dfc-b:Catalog";
 		
 		if ($other) {
 			parent::__construct(semantizer: $connector->getSemantizer(), semanticId: $semanticId, resource: $resource, other: $other, doNotStore: $doNotStore);
@@ -49,31 +49,31 @@ class Catalog extends SemanticObject implements ICatalog {
 		if ($items) { foreach ($items as $e) { $this->addItem($e); } }
 	}
 
-	public function getItems(): Array
-	 {
-		return $this->getSemanticPropertyAll("dfc:lists");
-		
-	}
-	
-
-	public function addItem(ICatalogItem $item): void {
-		$this->addSemanticPropertyReference("dfc:lists", $item);
-	}
-	
-
-	public function addMaintainer(IEnterprise $maintainer): void {
-		$this->addSemanticPropertyReference("dfc:maintainedBy", $maintainer);
-	}
-	
-
 	public function removeItem(ICatalogItem $item): void {
 		throw new Error("Not yet implemented.");
 	}
 	
 
+	public function addItem(ICatalogItem $item): void {
+		$this->addSemanticPropertyReference("dfc-b:lists", $item);
+	}
+	
+
+	public function addMaintainer(IEnterprise $maintainer): void {
+		$this->addSemanticPropertyReference("dfc-b:maintainedBy", $maintainer);
+	}
+	
+
+	public function getItems(): Array
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:lists");
+		
+	}
+	
+
 	public function getMaintainers(): Array
 	 {
-		return $this->getSemanticPropertyAll("dfc:maintainedBy");
+		return $this->getSemanticPropertyAll("dfc-b:maintainedBy");
 		
 	}
 	

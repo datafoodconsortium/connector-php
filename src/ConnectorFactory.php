@@ -43,25 +43,25 @@ class ConnectorFactory implements IFactory {
 
     public function makeFromResource($resource): Semanticable {
         $type = $resource->type();
-		if ($type === "dfc:Price") return new Price(connector: $this->getConnector(), resource: $resource);
+		if ($type === "dfc-b:CustomerCategory") return new CustomerCategory(connector: $this->getConnector(), resource: $resource);
+		if ($type === "dfc-b:Offer") return new Offer(connector: $this->getConnector(), resource: $resource);
+		if ($type === "dfc-b:NutrientCharacteristic") return new NutrientCharacteristic(connector: $this->getConnector(), resource: $resource);
+		if ($type === "dfc-b:AllergenCharacteristic") return new AllergenCharacteristic(connector: $this->getConnector(), resource: $resource);
+		if ($type === "dfc-b:SaleSession") return new SaleSession(connector: $this->getConnector(), resource: $resource);
+		if ($type === "dfc-b:QuantitativeValue") return new QuantitativeValue(connector: $this->getConnector(), resource: $resource);
+		if ($type === "dfc-b:OrderLine") return new OrderLine(connector: $this->getConnector(), resource: $resource);
+		if ($type === "dfc-b:PhysicalCharacteristic") return new PhysicalCharacteristic(connector: $this->getConnector(), resource: $resource);
+		if ($type === "dfc-b:SuppliedProduct") return new SuppliedProduct(connector: $this->getConnector(), resource: $resource);
+		if ($type === "dfc-b:Catalog") return new Catalog(connector: $this->getConnector(), resource: $resource);
+		if ($type === "dfc-b:Quantity") return new Quantity(connector: $this->getConnector(), resource: $resource);
+		if ($type === "dfc-b:Person") return new Person(connector: $this->getConnector(), resource: $resource);
+		if ($type === "dfc-b:Order") return new Order(connector: $this->getConnector(), resource: $resource);
+		if ($type === "dfc-b:TechnicalProduct") return new TechnicalProduct(connector: $this->getConnector(), resource: $resource);
+		if ($type === "dfc-b:Address") return new Address(connector: $this->getConnector(), resource: $resource);
+		if ($type === "dfc-b:Enterprise") return new Enterprise(connector: $this->getConnector(), resource: $resource);
+		if ($type === "dfc-b:Price") return new Price(connector: $this->getConnector(), resource: $resource);
+		if ($type === "dfc-b:CatalogItem") return new CatalogItem(connector: $this->getConnector(), resource: $resource);
 		if ($type === "skos:Concept") return new SKOSConcept(connector: $this->getConnector(), resource: $resource);
-		if ($type === "dfc:OrderLine") return new OrderLine(connector: $this->getConnector(), resource: $resource);
-		if ($type === "dfc:CustomerCategory") return new CustomerCategory(connector: $this->getConnector(), resource: $resource);
-		if ($type === "dfc:Quantity") return new Quantity(connector: $this->getConnector(), resource: $resource);
-		if ($type === "dfc:Enterprise") return new Enterprise(connector: $this->getConnector(), resource: $resource);
-		if ($type === "dfc:Order") return new Order(connector: $this->getConnector(), resource: $resource);
-		if ($type === "dfc:Catalog") return new Catalog(connector: $this->getConnector(), resource: $resource);
-		if ($type === "dfc:SuppliedProduct") return new SuppliedProduct(connector: $this->getConnector(), resource: $resource);
-		if ($type === "dfc:AllergenCharacteristic") return new AllergenCharacteristic(connector: $this->getConnector(), resource: $resource);
-		if ($type === "dfc:CatalogItem") return new CatalogItem(connector: $this->getConnector(), resource: $resource);
-		if ($type === "dfc:SaleSession") return new SaleSession(connector: $this->getConnector(), resource: $resource);
-		if ($type === "dfc:Address") return new Address(connector: $this->getConnector(), resource: $resource);
-		if ($type === "dfc:PhysicalCharacteristic") return new PhysicalCharacteristic(connector: $this->getConnector(), resource: $resource);
-		if ($type === "dfc:Person") return new Person(connector: $this->getConnector(), resource: $resource);
-		if ($type === "dfc:TechnicalProduct") return new TechnicalProduct(connector: $this->getConnector(), resource: $resource);
-		if ($type === "dfc:Offer") return new Offer(connector: $this->getConnector(), resource: $resource);
-		if ($type === "dfc:QuantitativeValue") return new QuantitativeValue(connector: $this->getConnector(), resource: $resource);
-		if ($type === "dfc:NutrientCharacteristic") return new NutrientCharacteristic(connector: $this->getConnector(), resource: $resource);
         throw new \TypeError("Unrecognized type: " . $type, 505);
     }
 

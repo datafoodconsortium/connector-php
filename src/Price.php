@@ -34,7 +34,7 @@ class Price extends SemanticObjectAnonymous implements IPrice {
 	protected IConnector $connector;
 
 	public function __construct(IConnector $connector, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, float $value = null, float $vatRate = null, ISKOSConcept $unit = null) {
-		$type = $semanticType? $semanticType: "dfc:Price";
+		$type = $semanticType? $semanticType: "dfc-b:Price";
 		
 		if ($other) {
 			parent::__construct(semantizer: $connector->getSemantizer(), resource: $resource, other: $other);
@@ -50,37 +50,37 @@ class Price extends SemanticObjectAnonymous implements IPrice {
 		if ($unit) { $this->setQuantityUnit($unit); }
 	}
 
-	public function getVatRate(): float 
-	 {
-		return $this->getSemanticProperty("dfc:VATrate");
-		
-	}
-	
-
-	public function setVatRate(float $vatRate): void {
-		$this->setSemanticProperty("dfc:VATrate", $vatRate);
-	}
-	
-	public function getQuantityUnit(): ISKOSConcept
-	 {
-		return $this->getSemanticProperty("dfc:hasUnit");
-		
-	}
-	
-
-	public function setQuantityUnit(ISKOSConcept $quantityUnit): void {
-		$this->setSemanticProperty("dfc:hasUnit", $quantityUnit);
-	}
-	
-
 	public function setQuantityValue(float $quantityValue): void {
-		$this->setSemanticProperty("dfc:value", $quantityValue);
+		$this->setSemanticProperty("dfc-b:value", $quantityValue);
 	}
 	
 
 	public function getQuantityValue(): float 
 	 {
-		return $this->getSemanticProperty("dfc:value");
+		return $this->getSemanticProperty("dfc-b:value");
+		
+	}
+	
+
+	public function setQuantityUnit(ISKOSConcept $quantityUnit): void {
+		$this->setSemanticProperty("dfc-b:hasUnit", $quantityUnit);
+	}
+	
+
+	public function getQuantityUnit(): ISKOSConcept
+	 {
+		return $this->getSemanticProperty("dfc-b:hasUnit");
+		
+	}
+	
+	public function setVatRate(float $vatRate): void {
+		$this->setSemanticProperty("dfc-b:VATrate", $vatRate);
+	}
+	
+
+	public function getVatRate(): float 
+	 {
+		return $this->getSemanticProperty("dfc-b:VATrate");
 		
 	}
 	

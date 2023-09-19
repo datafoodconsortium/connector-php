@@ -34,7 +34,7 @@ class CustomerCategory extends SemanticObject implements ICustomerCategory {
 	protected IConnector $connector;
 
 	public function __construct(IConnector $connector, string $semanticId = null, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, string $description = null, bool $doNotStore = false) {
-		$type = "dfc:CustomerCategory";
+		$type = "dfc-b:CustomerCategory";
 		
 		if ($other) {
 			parent::__construct(semantizer: $connector->getSemantizer(), semanticId: $semanticId, resource: $resource, other: $other, doNotStore: $doNotStore);
@@ -48,15 +48,15 @@ class CustomerCategory extends SemanticObject implements ICustomerCategory {
 		if ($description) { $this->setDescription($description); }
 	}
 
-	public function getDescription(): string 
-	 {
-		return $this->getSemanticProperty("dfc:description");
-		
+	public function setDescription(string $description): void {
+		$this->setSemanticProperty("dfc-b:description", $description);
 	}
 	
 
-	public function setDescription(string $description): void {
-		$this->setSemanticProperty("dfc:description", $description);
+	public function getDescription(): string 
+	 {
+		return $this->getSemanticProperty("dfc-b:description");
+		
 	}
 	
 

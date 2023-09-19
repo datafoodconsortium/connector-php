@@ -10,25 +10,25 @@ final class OfferTest extends TestCase {
 	public function testConstructor(): void {
         $connector = new Connector();
 
-		$elawpfaydh = new CatalogItem(connector: $connector, semanticId: "http://base.com/ovnykygzjh");
-		$scpcptpxlx = new CustomerCategory(connector: $connector, semanticId: "http://base.com/xlipjhands");
-		$ojfdkmdkhi = new Price(connector: $connector);
+		$hrygxhzclt = new CatalogItem(connector: $connector, semanticId: "http://base.com/iqbcsmqgrr");
+		$zfeznqgfyc = new CustomerCategory(connector: $connector, semanticId: "http://base.com/xcxpdatehb");
+		$egdsdvmzzm = new Price(connector: $connector);
 		
 
         $obj = new Offer(
             connector: $connector,
         	semanticId: "http://example.org/obj",
-        	offeredItem: $elawpfaydh,
-        	offeredTo: $scpcptpxlx,
-        	price: $ojfdkmdkhi,
-        	stockLimitation: 0.40618354
+        	offeredItem: $hrygxhzclt,
+        	offeredTo: $zfeznqgfyc,
+        	price: $egdsdvmzzm,
+        	stockLimitation: 0.2674408
         );
 
         $this->assertSame("http://example.org/obj", $obj->getSemanticId());
-		$this->assertSame($elawpfaydh, $obj->getOfferedItem());
-		$this->assertSame($scpcptpxlx, $obj->getCustomerCategory());
-		$this->assertSame(true, $obj->getPrice()->equals($ojfdkmdkhi));
-		$this->assertSame(0.40618354, $obj->getStockLimitation());
+		$this->assertSame($hrygxhzclt, $obj->getOfferedItem());
+		$this->assertSame($zfeznqgfyc, $obj->getCustomerCategory());
+		$this->assertSame(true, $obj->getPrice()->equals($egdsdvmzzm));
+		$this->assertSame(0.2674408, $obj->getStockLimitation());
     }
 
 	public function testGetSet(): void {
@@ -39,24 +39,24 @@ final class OfferTest extends TestCase {
 			semanticId: "http://example.org/obj"
         );
 
-		$yvjslytong = new Price(connector: $connector);
-		$obj->setPrice($yvjslytong);
-		$this->assertSame(true, $obj->getPrice()->equals($yvjslytong));
+		$jirkmzxbph = new CatalogItem(connector: $connector, semanticId: "http://base.com/hiequzadfe");
+		$obj->setOfferedItem($jirkmzxbph);
+		$this->assertSame($jirkmzxbph, $obj->getOfferedItem());
+		
+		
+		$bhtapnaeyk = new Price(connector: $connector);
+		$obj->setPrice($bhtapnaeyk);
+		$this->assertSame(true, $obj->getPrice()->equals($bhtapnaeyk));
 		
 		
 		
-		$obj->setStockLimitation(0.15710717);
-		$this->assertSame(0.15710717, $obj->getStockLimitation());
+		$obj->setStockLimitation(0.7220862);
+		$this->assertSame(0.7220862, $obj->getStockLimitation());
 		
 		
-		$odgeehahvp = new CustomerCategory(connector: $connector, semanticId: "http://base.com/nptfizmcgi");
-		$obj->setCustomerCategory($odgeehahvp);
-		$this->assertSame($odgeehahvp, $obj->getCustomerCategory());
-		
-		
-		$evslxyinfv = new CatalogItem(connector: $connector, semanticId: "http://base.com/czxndbqtiz");
-		$obj->setOfferedItem($evslxyinfv);
-		$this->assertSame($evslxyinfv, $obj->getOfferedItem());
+		$csbmpzxibo = new CustomerCategory(connector: $connector, semanticId: "http://base.com/mdzfasutkb");
+		$obj->setCustomerCategory($csbmpzxibo);
+		$this->assertSame($csbmpzxibo, $obj->getCustomerCategory());
 		
 		
     }
@@ -67,10 +67,10 @@ final class OfferTest extends TestCase {
 		$obj = new Offer(
 		    connector: $connector,
 			semanticId: "http://example.org/obj",
-			offeredItem: $elawpfaydh,
-			offeredTo: $scpcptpxlx,
-			price: $ojfdkmdkhi,
-			stockLimitation: 0.40618354
+			offeredItem: $hrygxhzclt,
+			offeredTo: $zfeznqgfyc,
+			price: $egdsdvmzzm,
+			stockLimitation: 0.2674408
 		);
 
 		$export = $connector->export([$obj]);

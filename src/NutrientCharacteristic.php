@@ -33,7 +33,7 @@ class NutrientCharacteristic extends Characteristic implements INutrientCharacte
 	
 
 	public function __construct(IConnector $connector, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, ISKOSConcept $unit = null, float $value = null, ISKOSConcept $nutrientDimension = null) {
-		$type = $semanticType? $semanticType: "dfc:NutrientCharacteristic";
+		$type = $semanticType? $semanticType: "dfc-b:NutrientCharacteristic";
 		
 		if ($other) {
 			parent::__construct(connector: $connector, resource: $resource, other: $other);
@@ -49,13 +49,13 @@ class NutrientCharacteristic extends Characteristic implements INutrientCharacte
 
 	public function getQuantityDimension(): ISKOSConcept
 	 {
-		return $this->getSemanticProperty("dfc:hasNutrientDimension");
+		return $this->getSemanticProperty("dfc-b:hasNutrientDimension");
 		
 	}
 	
 
 	public function setQuantityDimension(ISKOSConcept $quantityDimension): void {
-		$this->setSemanticProperty("dfc:hasNutrientDimension", $quantityDimension);
+		$this->setSemanticProperty("dfc-b:hasNutrientDimension", $quantityDimension);
 	}
 	
 

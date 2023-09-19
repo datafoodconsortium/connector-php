@@ -18,24 +18,24 @@ final class SKOSConceptTest extends TestCase {
         );
 
 		
-		$zospmoxgsg = new SKOSConcept(connector: $connector, semanticId: "http://base.com/hdhpwbwhwc");
-		$obj->addNarrower($zospmoxgsg);
-		$this->assertSame([$zospmoxgsg], $obj->getNarrower());
+		$xqnptznwrc = new invalid(connector: $connector, semanticId: "http://base.com/ngptoirpvh");
+		$obj->addPrefLabel($xqnptznwrc);
+		$this->assertSame([$xqnptznwrc], $obj->getPrefLabel());
 		
 		
-		$onsfdodpll = new SKOSConcept(connector: $connector, semanticId: "http://base.com/mxvieadnuo");
-		$obj->addBroader($onsfdodpll);
-		$this->assertSame([$onsfdodpll], $obj->getBroader());
+		$olficzkmic = new SKOSConcept(connector: $connector, semanticId: "http://base.com/etnoqatygr");
+		$obj->addBroader($olficzkmic);
+		$this->assertSame([$olficzkmic], $obj->getBroader());
 		
 		
-		$vkbzbnjjgv = new invalid(connector: $connector, semanticId: "http://base.com/trhfzsldzq");
-		$obj->addScheme($vkbzbnjjgv);
-		$this->assertSame([$vkbzbnjjgv], $obj->getScheme());
+		$cdlbbksfme = new invalid(connector: $connector, semanticId: "http://base.com/kanyuwmkgd");
+		$obj->addScheme($cdlbbksfme);
+		$this->assertSame([$cdlbbksfme], $obj->getScheme());
 		
 		
-		$qvcaaqimre = new invalid(connector: $connector, semanticId: "http://base.com/zgdzzmjfim");
-		$obj->addPrefLabel($qvcaaqimre);
-		$this->assertSame([$qvcaaqimre], $obj->getPrefLabel());
+		$rsxfwfqprk = new SKOSConcept(connector: $connector, semanticId: "http://base.com/oonlwkiddu");
+		$obj->addNarrower($rsxfwfqprk);
+		$this->assertSame([$rsxfwfqprk], $obj->getNarrower());
 		
     }
 

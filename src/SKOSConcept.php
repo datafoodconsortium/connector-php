@@ -48,26 +48,6 @@ class SKOSConcept extends SemanticObject implements ISKOSConcept {
 		
 	}
 
-	public function addScheme(ISKOSConceptScheme $scheme): void {
-		$this->addSemanticPropertyReference("skos:inScheme", $scheme);
-	}
-	
-
-	public function addNarrower(ISKOSConcept $narrower): void {
-		$this->addSemanticPropertyReference("skos:narrower", $narrower);
-	}
-	
-
-	public function addPrefLabel(ISKOSLabel $prefLabel): void {
-		$this->addSemanticPropertyReference("skos:prefLabel", $prefLabel);
-	}
-	
-
-	public function removeScheme(ISKOSConceptScheme $scheme): void {
-		throw new Error("Not yet implemented.");
-	}
-	
-
 	public function removePrefLabel(ISKOSLabel $prefLabel): void {
 		throw new Error("Not yet implemented.");
 	}
@@ -78,6 +58,16 @@ class SKOSConcept extends SemanticObject implements ISKOSConcept {
 	}
 	
 
+	public function removeScheme(ISKOSConceptScheme $scheme): void {
+		throw new Error("Not yet implemented.");
+	}
+	
+
+	public function addScheme(ISKOSConceptScheme $scheme): void {
+		$this->addSemanticPropertyReference("skos:inScheme", $scheme);
+	}
+	
+
 	public function getNarrower(): Array
 	 {
 		return $this->getSemanticPropertyAll("skos:narrower");
@@ -85,10 +75,13 @@ class SKOSConcept extends SemanticObject implements ISKOSConcept {
 	}
 	
 
-	public function getPrefLabel(): Array
-	 {
-		return $this->getSemanticPropertyAll("skos:prefLabel");
-		
+	public function removeBroader(ISKOSConcept $broader): void {
+		throw new Error("Not yet implemented.");
+	}
+	
+
+	public function addPrefLabel(ISKOSLabel $prefLabel): void {
+		$this->addSemanticPropertyReference("skos:prefLabel", $prefLabel);
 	}
 	
 
@@ -99,6 +92,11 @@ class SKOSConcept extends SemanticObject implements ISKOSConcept {
 	}
 	
 
+	public function addBroader(ISKOSConcept $broader): void {
+		$this->addSemanticPropertyReference("skos:broader", $broader);
+	}
+	
+
 	public function getScheme(): Array
 	 {
 		return $this->getSemanticPropertyAll("skos:inScheme");
@@ -106,13 +104,15 @@ class SKOSConcept extends SemanticObject implements ISKOSConcept {
 	}
 	
 
-	public function removeBroader(ISKOSConcept $broader): void {
-		throw new Error("Not yet implemented.");
+	public function addNarrower(ISKOSConcept $narrower): void {
+		$this->addSemanticPropertyReference("skos:narrower", $narrower);
 	}
 	
 
-	public function addBroader(ISKOSConcept $broader): void {
-		$this->addSemanticPropertyReference("skos:broader", $broader);
+	public function getPrefLabel(): Array
+	 {
+		return $this->getSemanticPropertyAll("skos:prefLabel");
+		
 	}
 	
 

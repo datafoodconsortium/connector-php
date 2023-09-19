@@ -10,19 +10,19 @@ final class CatalogTest extends TestCase {
 	public function testConstructor(): void {
         $connector = new Connector();
 
-		$lulpmoaphs = array(new Enterprise(connector: $connector, semanticId: "http://base.com/uqzrnbgopw"));
-		$cqzcuowobm = array(new CatalogItem(connector: $connector, semanticId: "http://base.com/zddqnvkmuc"));
+		$ihmdorjvbm = array(new Enterprise(connector: $connector, semanticId: "http://base.com/jnslvxybji"));
+		$bnrwtaxmqw = array(new CatalogItem(connector: $connector, semanticId: "http://base.com/pkhganikiv"));
 
         $obj = new Catalog(
             connector: $connector,
         	semanticId: "http://example.org/obj",
-        	maintainers: $lulpmoaphs,
-        	items: $cqzcuowobm
+        	maintainers: $ihmdorjvbm,
+        	items: $bnrwtaxmqw
         );
 
         $this->assertSame("http://example.org/obj", $obj->getSemanticId());
-		$this->assertSame($lulpmoaphs, $obj->getMaintainers());
-		$this->assertSame($cqzcuowobm, $obj->getItems());
+		$this->assertSame($ihmdorjvbm, $obj->getMaintainers());
+		$this->assertSame($bnrwtaxmqw, $obj->getItems());
     }
 
 	public function testGetSet(): void {
@@ -34,14 +34,14 @@ final class CatalogTest extends TestCase {
         );
 
 		
-		$mhxjaqtvnx = new CatalogItem(connector: $connector, semanticId: "http://base.com/qxorqrfqot");
-		$obj->addItem($mhxjaqtvnx);
-		$this->assertSame([$mhxjaqtvnx], $obj->getItems());
+		$vsthlhyqiy = new Enterprise(connector: $connector, semanticId: "http://base.com/oayofjgygf");
+		$obj->addMaintainer($vsthlhyqiy);
+		$this->assertSame([$vsthlhyqiy], $obj->getMaintainers());
 		
 		
-		$ybtierkreo = new Enterprise(connector: $connector, semanticId: "http://base.com/glkosbmrov");
-		$obj->addMaintainer($ybtierkreo);
-		$this->assertSame([$ybtierkreo], $obj->getMaintainers());
+		$yhwondrrri = new CatalogItem(connector: $connector, semanticId: "http://base.com/xuzfjdrnhb");
+		$obj->addItem($yhwondrrri);
+		$this->assertSame([$yhwondrrri], $obj->getItems());
 		
     }
 
@@ -51,8 +51,8 @@ final class CatalogTest extends TestCase {
 		$obj = new Catalog(
 		    connector: $connector,
 			semanticId: "http://example.org/obj",
-			maintainers: $lulpmoaphs,
-			items: $cqzcuowobm
+			maintainers: $ihmdorjvbm,
+			items: $bnrwtaxmqw
 		);
 
 		$export = $connector->export([$obj]);

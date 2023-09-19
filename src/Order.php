@@ -34,7 +34,7 @@ class Order extends SemanticObject implements IOrder {
 	protected IConnector $connector;
 
 	public function __construct(IConnector $connector, string $semanticId = null, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, string $number = null, string $date = null, ISaleSession $saleSession = null, IAgent $client = null, Array $lines = null, bool $doNotStore = false) {
-		$type = "dfc:Order";
+		$type = "dfc-b:Order";
 		
 		if ($other) {
 			parent::__construct(semantizer: $connector->getSemantizer(), semanticId: $semanticId, resource: $resource, other: $other, doNotStore: $doNotStore);
@@ -52,63 +52,63 @@ class Order extends SemanticObject implements IOrder {
 		if ($lines) { foreach ($lines as $e) { $this->addLine($e); } }
 	}
 
-	public function getClient(): IAgent
-	 {
-		return $this->getSemanticProperty("dfc:orderedBy");
-		
+	public function setClient(IAgent $client): void {
+		$this->setSemanticProperty("dfc-b:orderedBy", $client);
 	}
 	
 
 	public function getDate(): string 
 	 {
-		return $this->getSemanticProperty("dfc:date");
-		
-	}
-	
-
-	public function getLines(): Array
-	 {
-		return $this->getSemanticPropertyAll("dfc:hasPart");
-		
-	}
-	
-
-	public function setNumber(string $number): void {
-		$this->setSemanticProperty("dfc:orderNumber", $number);
-	}
-	
-
-	public function getNumber(): string 
-	 {
-		return $this->getSemanticProperty("dfc:orderNumber");
+		return $this->getSemanticProperty("dfc-b:date");
 		
 	}
 	
 
 	public function setSaleSession(ISaleSession $saleSession): void {
-		$this->setSemanticProperty("dfc:belongsTo", $saleSession);
+		$this->setSemanticProperty("dfc-b:belongsTo", $saleSession);
 	}
 	
 
-	public function setClient(IAgent $client): void {
-		$this->setSemanticProperty("dfc:orderedBy", $client);
-	}
-	
-
-	public function addLine(IOrderLine $line): void {
-		$this->addSemanticPropertyReference("dfc:hasPart", $line);
+	public function getLines(): Array
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:hasPart");
+		
 	}
 	
 
 	public function getSaleSession(): ISaleSession
 	 {
-		return $this->getSemanticProperty("dfc:belongsTo");
+		return $this->getSemanticProperty("dfc-b:belongsTo");
+		
+	}
+	
+
+	public function addLine(IOrderLine $line): void {
+		$this->addSemanticPropertyReference("dfc-b:hasPart", $line);
+	}
+	
+
+	public function getNumber(): string 
+	 {
+		return $this->getSemanticProperty("dfc-b:orderNumber");
 		
 	}
 	
 
 	public function setDate(string $date): void {
-		$this->setSemanticProperty("dfc:date", $date);
+		$this->setSemanticProperty("dfc-b:date", $date);
+	}
+	
+
+	public function getClient(): IAgent
+	 {
+		return $this->getSemanticProperty("dfc-b:orderedBy");
+		
+	}
+	
+
+	public function setNumber(string $number): void {
+		$this->setSemanticProperty("dfc-b:orderNumber", $number);
 	}
 	
 

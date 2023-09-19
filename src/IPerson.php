@@ -28,7 +28,7 @@ namespace DataFoodConsortium\Connector;
 
 use \VirtualAssembly\Semantizer\Semanticable;
 
-interface IPerson extends Semanticable, Affiliable, Personable{
+interface IPerson extends Semanticable, Personable, Affiliable{
 
 
 }
