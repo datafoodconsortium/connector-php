@@ -12,26 +12,35 @@ final class OrderTest extends TestCase {
 
 		
 		
-		$zjanpxgfsg = new SaleSession(connector: $connector, semanticId: "http://base.com/hycidajhmq");
-		$xjivsfxtsr = new Person(connector: $connector, semanticId: "http://base.com/hybmgkkwnz");
-		$zemxqyngds = array(new OrderLine(connector: $connector, semanticId: "http://base.com/fturjxqztt"));
+		$pwvwqmexbt = new SaleSession(connector: $connector, semanticId: "http://base.com/mldalmpaxl");
+		$uzmwwetpku = new Enterprise(connector: $connector, semanticId: "http://base.com/mclmqgpefx");
+		$wwtvwxjbus = array(new OrderLine(connector: $connector, semanticId: "http://base.com/szypmeiyde"));
+		$unnqlkxjfn = new SKOSConcept(connector: $connector, semanticId: "http://base.com/gqlvrqopax");
+		$abjupirhbk = new SKOSConcept(connector: $connector, semanticId: "http://base.com/dsxobdvsgw");
+		$fvlegakmyi = new SKOSConcept(connector: $connector, semanticId: "http://base.com/uffbofikxk");
 
         $obj = new Order(
             connector: $connector,
         	semanticId: "http://example.org/obj",
-        	number: "najonfdcdw",
-        	date: "beinpruulc",
-        	saleSession: $zjanpxgfsg,
-        	client: $xjivsfxtsr,
-        	lines: $zemxqyngds
+        	number: "ztwcgyorub",
+        	date: "ztcvzqxluz",
+        	saleSession: $pwvwqmexbt,
+        	client: $uzmwwetpku,
+        	lines: $wwtvwxjbus,
+        	fulfilmentStatus: $unnqlkxjfn,
+        	orderStatus: $abjupirhbk,
+        	paymentStatus: $fvlegakmyi
         );
 
         $this->assertSame("http://example.org/obj", $obj->getSemanticId());
-		$this->assertSame("najonfdcdw", $obj->getNumber());
-		$this->assertSame("beinpruulc", $obj->getDate());
-		$this->assertSame($zjanpxgfsg, $obj->getSaleSession());
-		$this->assertSame($xjivsfxtsr, $obj->getClient());
-		$this->assertSame($zemxqyngds, $obj->getLines());
+		$this->assertSame("ztwcgyorub", $obj->getNumber());
+		$this->assertSame("ztcvzqxluz", $obj->getDate());
+		$this->assertSame($pwvwqmexbt, $obj->getSaleSession());
+		$this->assertSame($uzmwwetpku, $obj->getClient());
+		$this->assertSame($wwtvwxjbus, $obj->getLines());
+		$this->assertSame($unnqlkxjfn, $obj->getFulfilmentStatus());
+		$this->assertSame($abjupirhbk, $obj->getOrderStatus());
+		$this->assertSame($fvlegakmyi, $obj->getPaymentStatus());
     }
 
 	public function testGetSet(): void {
@@ -42,29 +51,44 @@ final class OrderTest extends TestCase {
 			semanticId: "http://example.org/obj"
         );
 
-		
-		$obj->setNumber("covkquzjct");
-		$this->assertSame("covkquzjct", $obj->getNumber());
-		
-		
-		
-		$vpyqxjqypb = new OrderLine(connector: $connector, semanticId: "http://base.com/ljniswdjbs");
-		$obj->addLine($vpyqxjqypb);
-		$this->assertSame([$vpyqxjqypb], $obj->getLines());
-		
-		$qylvdrfelh = new SaleSession(connector: $connector, semanticId: "http://base.com/kowxzvbkxb");
-		$obj->setSaleSession($qylvdrfelh);
-		$this->assertSame($qylvdrfelh, $obj->getSaleSession());
+		$jaltfghign = new SKOSConcept(connector: $connector, semanticId: "http://base.com/ouwaqtifza");
+		$obj->setOrderStatus($jaltfghign);
+		$this->assertSame($jaltfghign, $obj->getOrderStatus());
 		
 		
-		$jljcrxfrwx = new Person(connector: $connector, semanticId: "http://base.com/lvtrfgravn");
-		$obj->setClient($jljcrxfrwx);
-		$this->assertSame($jljcrxfrwx, $obj->getClient());
+		$mrrzuthwdg = new SKOSConcept(connector: $connector, semanticId: "http://base.com/hyfcbbzaad");
+		$obj->setFulfilmentStatus($mrrzuthwdg);
+		$this->assertSame($mrrzuthwdg, $obj->getFulfilmentStatus());
 		
 		
 		
-		$obj->setDate("peeqntauee");
-		$this->assertSame("peeqntauee", $obj->getDate());
+		$krtbvjvnvu = new OrderLine(connector: $connector, semanticId: "http://base.com/laqtxjvuip");
+		$obj->addLine($krtbvjvnvu);
+		$this->assertSame([$krtbvjvnvu], $obj->getLines());
+		
+		
+		$obj->setDate("oxbclvmnlx");
+		$this->assertSame("oxbclvmnlx", $obj->getDate());
+		
+		
+		$ddrzytpyzk = new SaleSession(connector: $connector, semanticId: "http://base.com/mbjscvkuit");
+		$obj->setSaleSession($ddrzytpyzk);
+		$this->assertSame($ddrzytpyzk, $obj->getSaleSession());
+		
+		
+		$yqldlnaeac = new SKOSConcept(connector: $connector, semanticId: "http://base.com/bvfonycsjc");
+		$obj->setPaymentStatus($yqldlnaeac);
+		$this->assertSame($yqldlnaeac, $obj->getPaymentStatus());
+		
+		
+		
+		$obj->setNumber("gxkbguzpgw");
+		$this->assertSame("gxkbguzpgw", $obj->getNumber());
+		
+		
+		$idzwlripfx = new Enterprise(connector: $connector, semanticId: "http://base.com/mtjvvebavv");
+		$obj->setClient($idzwlripfx);
+		$this->assertSame($idzwlripfx, $obj->getClient());
 		
 		
     }
@@ -75,11 +99,14 @@ final class OrderTest extends TestCase {
 		$obj = new Order(
 		    connector: $connector,
 			semanticId: "http://example.org/obj",
-			number: "najonfdcdw",
-			date: "beinpruulc",
-			saleSession: $zjanpxgfsg,
-			client: $xjivsfxtsr,
-			lines: $zemxqyngds
+			number: "ztwcgyorub",
+			date: "ztcvzqxluz",
+			saleSession: $pwvwqmexbt,
+			client: $uzmwwetpku,
+			lines: $wwtvwxjbus,
+			fulfilmentStatus: $unnqlkxjfn,
+			orderStatus: $abjupirhbk,
+			paymentStatus: $fvlegakmyi
 		);
 
 		$export = $connector->export([$obj]);

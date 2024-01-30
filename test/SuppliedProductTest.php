@@ -12,62 +12,62 @@ final class SuppliedProductTest extends TestCase {
 
 		
 		
-		$zobrmfdjuc = new SKOSConcept(connector: $connector, semanticId: "http://base.com/rgzscwgckz");
-		$wwtunmqlyw = new Quantity(connector: $connector);
+		$jnfvtrbrbh = new SKOSConcept(connector: $connector, semanticId: "http://base.com/vtwnsopjih");
+		$feehulzwuh = new Quantity(connector: $connector);
 		
 		
-		$cdqsuwoeps = array(new SKOSConcept(connector: $connector, semanticId: "http://base.com/mbwcongzgh"));
+		$ccymyvfdio = array(new SKOSConcept(connector: $connector, semanticId: "http://base.com/axkunqavqv"));
 		
-		$dkmzjktnun = array(new AllergenCharacteristic(connector: $connector));
-		$slrrqdrdwc = array(new NutrientCharacteristic(connector: $connector));
-		$aciyrlktyf = array(new PhysicalCharacteristic(connector: $connector));
-		$mscfflwrhm = new SKOSConcept(connector: $connector, semanticId: "http://base.com/deoodqhugv");
-		$ghvwumatmj = array(new CatalogItem(connector: $connector, semanticId: "http://base.com/icpusjyssm"));
-		$behxfqymcf = array(new SKOSConcept(connector: $connector, semanticId: "http://base.com/nioxsciwfp"));
-		$ckcscengvi = array(new SKOSConcept(connector: $connector, semanticId: "http://base.com/wiewqofxze"));
-		$ynfptdivww = array(new SKOSConcept(connector: $connector, semanticId: "http://base.com/zubhmyqmgi"));
+		$zyymgkkblt = array(new AllergenCharacteristic(connector: $connector));
+		$kmmyjqflnr = array(new NutrientCharacteristic(connector: $connector));
+		$fvdsdgbfxe = array(new PhysicalCharacteristic(connector: $connector));
+		$xbgghpexrx = new SKOSConcept(connector: $connector, semanticId: "http://base.com/znalxcvuto");
+		$gfzsbhhrmy = array(new CatalogItem(connector: $connector, semanticId: "http://base.com/lazvilwpnn"));
+		$mpuncsxceh = array(new SKOSConcept(connector: $connector, semanticId: "http://base.com/darrsmlycl"));
+		$ltlolyhgme = array(new SKOSConcept(connector: $connector, semanticId: "http://base.com/fbiivwpdox"));
+		$eyicbnhbsk = array(new SKOSConcept(connector: $connector, semanticId: "http://base.com/gkqpcmwewc"));
 		
 
         $obj = new SuppliedProduct(
             connector: $connector,
         	semanticId: "http://example.org/obj",
-        	name: "nteycairep",
-        	description: "ngkqttlsft",
-        	productType: $zobrmfdjuc,
-        	quantity: $wwtunmqlyw,
-        	alcoholPercentage: 0.30005717,
-        	lifetime: "tztexohegb",
-        	claims: $cdqsuwoeps,
-        	usageOrStorageConditions: "nyisepodcu",
-        	allergenCharacteristics: $dkmzjktnun,
-        	nutrientCharacteristics: $slrrqdrdwc,
-        	physicalCharacteristics: $aciyrlktyf,
-        	geographicalOrigin: $mscfflwrhm,
-        	catalogItems: $ghvwumatmj,
-        	certifications: $behxfqymcf,
-        	natureOrigin: $ckcscengvi,
-        	partOrigin: $ynfptdivww,
-        	totalTheoreticalStock: 0.14140141
+        	name: "vcsecqtdqn",
+        	description: "ojvberjzji",
+        	productType: $jnfvtrbrbh,
+        	quantity: $feehulzwuh,
+        	alcoholPercentage: 0.8454808,
+        	lifetime: "wcdcdywade",
+        	claims: $ccymyvfdio,
+        	usageOrStorageConditions: "ldpeiaumod",
+        	allergenCharacteristics: $zyymgkkblt,
+        	nutrientCharacteristics: $kmmyjqflnr,
+        	physicalCharacteristics: $fvdsdgbfxe,
+        	geographicalOrigin: $xbgghpexrx,
+        	catalogItems: $gfzsbhhrmy,
+        	certifications: $mpuncsxceh,
+        	natureOrigin: $ltlolyhgme,
+        	partOrigin: $eyicbnhbsk,
+        	totalTheoreticalStock: 0.055290163
         );
 
         $this->assertSame("http://example.org/obj", $obj->getSemanticId());
-		$this->assertSame("nteycairep", $obj->getName());
-		$this->assertSame("ngkqttlsft", $obj->getDescription());
-		$this->assertSame($zobrmfdjuc, $obj->getProductType());
-		$this->assertSame(true, $obj->getQuantity()->equals($wwtunmqlyw));
-		$this->assertSame(0.30005717, $obj->getAlcoholPercentage());
-		$this->assertSame("tztexohegb", $obj->getLifetime());
-		$this->assertSame($cdqsuwoeps, $obj->getClaims());
-		$this->assertSame("nyisepodcu", $obj->getUsageOrStorageConditions());
-		$this->assertSame(true, TestUtils::testBlankNodeArray($obj->getAllergenCharacteristics(), $dkmzjktnun));
-		$this->assertSame(true, TestUtils::testBlankNodeArray($obj->getNutrientCharacteristics(), $slrrqdrdwc));
-		$this->assertSame(true, TestUtils::testBlankNodeArray($obj->getPhysicalCharacteristics(), $aciyrlktyf));
-		$this->assertSame($mscfflwrhm, $obj->getGeographicalOrigin());
-		$this->assertSame($ghvwumatmj, $obj->getCatalogItems());
-		$this->assertSame($behxfqymcf, $obj->getCertifications());
-		$this->assertSame($ckcscengvi, $obj->getNatureOrigin());
-		$this->assertSame($ynfptdivww, $obj->getPartOrigin());
-		$this->assertSame(0.14140141, $obj->getTotalTheoreticalStock());
+		$this->assertSame("vcsecqtdqn", $obj->getName());
+		$this->assertSame("ojvberjzji", $obj->getDescription());
+		$this->assertSame($jnfvtrbrbh, $obj->getProductType());
+		$this->assertSame(true, $obj->getQuantity()->equals($feehulzwuh));
+		$this->assertSame(0.8454808, $obj->getAlcoholPercentage());
+		$this->assertSame("wcdcdywade", $obj->getLifetime());
+		$this->assertSame($ccymyvfdio, $obj->getClaims());
+		$this->assertSame("ldpeiaumod", $obj->getUsageOrStorageConditions());
+		$this->assertSame(true, TestUtils::testBlankNodeArray($obj->getAllergenCharacteristics(), $zyymgkkblt));
+		$this->assertSame(true, TestUtils::testBlankNodeArray($obj->getNutrientCharacteristics(), $kmmyjqflnr));
+		$this->assertSame(true, TestUtils::testBlankNodeArray($obj->getPhysicalCharacteristics(), $fvdsdgbfxe));
+		$this->assertSame($xbgghpexrx, $obj->getGeographicalOrigin());
+		$this->assertSame($gfzsbhhrmy, $obj->getCatalogItems());
+		$this->assertSame($mpuncsxceh, $obj->getCertifications());
+		$this->assertSame($ltlolyhgme, $obj->getNatureOrigin());
+		$this->assertSame($eyicbnhbsk, $obj->getPartOrigin());
+		$this->assertSame(0.055290163, $obj->getTotalTheoreticalStock());
     }
 
 	public function testGetSet(): void {
@@ -79,89 +79,89 @@ final class SuppliedProductTest extends TestCase {
         );
 
 		
-		$obj->setTotalTheoreticalStock(0.08369976);
-		$this->assertSame(0.08369976, $obj->getTotalTheoreticalStock());
+		$obj->setDescription("jylgyrazol");
+		$this->assertSame("jylgyrazol", $obj->getDescription());
+		
+		
+		$xeydxlslxr = new SKOSConcept(connector: $connector, semanticId: "http://base.com/jgmyyrvlse");
+		$obj->setProductType($xeydxlslxr);
+		$this->assertSame($xeydxlslxr, $obj->getProductType());
 		
 		
 		
-		$obj->setDescription("shmahxecgl");
-		$this->assertSame("shmahxecgl", $obj->getDescription());
+		$qcvxljrmsi = new SKOSConcept(connector: $connector, semanticId: "http://base.com/qloylqiklb");
+		$obj->addPartOrigin($qcvxljrmsi);
+		$this->assertSame([$qcvxljrmsi], $obj->getPartOrigin());
+		
+		
+		$uzxugzvjjz = new SKOSConcept(connector: $connector, semanticId: "http://base.com/gxckwsftts");
+		$obj->addNatureOrigin($uzxugzvjjz);
+		$this->assertSame([$uzxugzvjjz], $obj->getNatureOrigin());
+		
+		
+		$obj->setUsageOrStorageConditions("ovuawbcppe");
+		$this->assertSame("ovuawbcppe", $obj->getUsageOrStorageConditions());
 		
 		
 		
-		$sakuiuzctk = new SKOSConcept(connector: $connector, semanticId: "http://base.com/hrdpfrualo");
-		$obj->addNatureOrigin($sakuiuzctk);
-		$this->assertSame([$sakuiuzctk], $obj->getNatureOrigin());
-		
-		$tbrkncarvo = new Quantity(connector: $connector);
-		$obj->setQuantity($tbrkncarvo);
-		$this->assertSame(true, $obj->getQuantity()->equals($tbrkncarvo));
+		$obj->setAlcoholPercentage(0.35272568);
+		$this->assertSame(0.35272568, $obj->getAlcoholPercentage());
 		
 		
 		
-		$hcdnrahmtt = new PhysicalCharacteristic(connector: $connector);
-		$obj->addPhysicalCharacteristic($hcdnrahmtt);
-		$this->assertSame(true, TestUtils::testBlankNodeArray($obj->getPhysicalCharacteristics(), [$hcdnrahmtt]));
+		$usonmadaxs = new SKOSConcept(connector: $connector, semanticId: "http://base.com/dpruztrmuj");
+		$obj->addClaim($usonmadaxs);
+		$this->assertSame([$usonmadaxs], $obj->getClaims());
 		
 		
-		$khkewinqvb = new SKOSConcept(connector: $connector, semanticId: "http://base.com/ucteegqztc");
-		$obj->addPartOrigin($khkewinqvb);
-		$this->assertSame([$khkewinqvb], $obj->getPartOrigin());
+		$bhfrjhvrya = new NutrientCharacteristic(connector: $connector);
+		$obj->addNutrientCharacteristic($bhfrjhvrya);
+		$this->assertSame(true, TestUtils::testBlankNodeArray($obj->getNutrientCharacteristics(), [$bhfrjhvrya]));
 		
 		
-		$kiktgftmnl = new NutrientCharacteristic(connector: $connector);
-		$obj->addNutrientCharacteristic($kiktgftmnl);
-		$this->assertSame(true, TestUtils::testBlankNodeArray($obj->getNutrientCharacteristics(), [$kiktgftmnl]));
-		
-		
-		$obj->setName("kyvrhkbufa");
-		$this->assertSame("kyvrhkbufa", $obj->getName());
-		
-		
-		$kywhhdpbiu = new SKOSConcept(connector: $connector, semanticId: "http://base.com/pduyuxcvxk");
-		$obj->setProductType($kywhhdpbiu);
-		$this->assertSame($kywhhdpbiu, $obj->getProductType());
+		$obj->setTotalTheoreticalStock(0.25476295);
+		$this->assertSame(0.25476295, $obj->getTotalTheoreticalStock());
 		
 		
 		
-		$qybqvdrkmd = new SKOSConcept(connector: $connector, semanticId: "http://base.com/drfkrewjrk");
-		$obj->addCertification($qybqvdrkmd);
-		$this->assertSame([$qybqvdrkmd], $obj->getCertifications());
+		$jfmhvrukit = new PhysicalCharacteristic(connector: $connector);
+		$obj->addPhysicalCharacteristic($jfmhvrukit);
+		$this->assertSame(true, TestUtils::testBlankNodeArray($obj->getPhysicalCharacteristics(), [$jfmhvrukit]));
 		
 		
-		$ruqilyanio = new CatalogItem(connector: $connector, semanticId: "http://base.com/jwxbdihqmn");
-		$obj->addCatalogItem($ruqilyanio);
-		$this->assertSame([$ruqilyanio], $obj->getCatalogItems());
+		$slsexhhbna = new CatalogItem(connector: $connector, semanticId: "http://base.com/zfqeulntef");
+		$obj->addCatalogItem($slsexhhbna);
+		$this->assertSame([$slsexhhbna], $obj->getCatalogItems());
 		
-		
-		$obj->setUsageOrStorageConditions("mvyrzjtvmm");
-		$this->assertSame("mvyrzjtvmm", $obj->getUsageOrStorageConditions());
-		
-		
-		$hwcrzvhmjj = new SKOSConcept(connector: $connector, semanticId: "http://base.com/mjzrglooqh");
-		$obj->setGeographicalOrigin($hwcrzvhmjj);
-		$this->assertSame($hwcrzvhmjj, $obj->getGeographicalOrigin());
+		$qvdclbcfqn = new SKOSConcept(connector: $connector, semanticId: "http://base.com/siwzurnqhp");
+		$obj->setGeographicalOrigin($qvdclbcfqn);
+		$this->assertSame($qvdclbcfqn, $obj->getGeographicalOrigin());
 		
 		
 		
-		$obj->setAlcoholPercentage(0.49682224);
-		$this->assertSame(0.49682224, $obj->getAlcoholPercentage());
+		$obj->setLifetime("hrpxclsbdq");
+		$this->assertSame("hrpxclsbdq", $obj->getLifetime());
 		
 		
 		
-		$obj->setLifetime("nntqxfksod");
-		$this->assertSame("nntqxfksod", $obj->getLifetime());
+		$aruzsdsatg = new AllergenCharacteristic(connector: $connector);
+		$obj->addAllergenCharacteristic($aruzsdsatg);
+		$this->assertSame(true, TestUtils::testBlankNodeArray($obj->getAllergenCharacteristics(), [$aruzsdsatg]));
+		
+		$wpxmwmtssm = new Quantity(connector: $connector);
+		$obj->setQuantity($wpxmwmtssm);
+		$this->assertSame(true, $obj->getQuantity()->equals($wpxmwmtssm));
 		
 		
 		
-		$dwsmrejqxb = new AllergenCharacteristic(connector: $connector);
-		$obj->addAllergenCharacteristic($dwsmrejqxb);
-		$this->assertSame(true, TestUtils::testBlankNodeArray($obj->getAllergenCharacteristics(), [$dwsmrejqxb]));
+		$obj->setName("ifklkcjsua");
+		$this->assertSame("ifklkcjsua", $obj->getName());
 		
 		
-		$vxqhodicqe = new SKOSConcept(connector: $connector, semanticId: "http://base.com/uhikcocxfg");
-		$obj->addClaim($vxqhodicqe);
-		$this->assertSame([$vxqhodicqe], $obj->getClaims());
+		
+		$ccmcgmnebq = new SKOSConcept(connector: $connector, semanticId: "http://base.com/fchiqnwrrq");
+		$obj->addCertification($ccmcgmnebq);
+		$this->assertSame([$ccmcgmnebq], $obj->getCertifications());
 		
     }
 
@@ -171,23 +171,23 @@ final class SuppliedProductTest extends TestCase {
 		$obj = new SuppliedProduct(
 		    connector: $connector,
 			semanticId: "http://example.org/obj",
-			name: "nteycairep",
-			description: "ngkqttlsft",
-			productType: $zobrmfdjuc,
-			quantity: $wwtunmqlyw,
-			alcoholPercentage: 0.30005717,
-			lifetime: "tztexohegb",
-			claims: $cdqsuwoeps,
-			usageOrStorageConditions: "nyisepodcu",
-			allergenCharacteristics: $dkmzjktnun,
-			nutrientCharacteristics: $slrrqdrdwc,
-			physicalCharacteristics: $aciyrlktyf,
-			geographicalOrigin: $mscfflwrhm,
-			catalogItems: $ghvwumatmj,
-			certifications: $behxfqymcf,
-			natureOrigin: $ckcscengvi,
-			partOrigin: $ynfptdivww,
-			totalTheoreticalStock: 0.14140141
+			name: "vcsecqtdqn",
+			description: "ojvberjzji",
+			productType: $jnfvtrbrbh,
+			quantity: $feehulzwuh,
+			alcoholPercentage: 0.8454808,
+			lifetime: "wcdcdywade",
+			claims: $ccymyvfdio,
+			usageOrStorageConditions: "ldpeiaumod",
+			allergenCharacteristics: $zyymgkkblt,
+			nutrientCharacteristics: $kmmyjqflnr,
+			physicalCharacteristics: $fvdsdgbfxe,
+			geographicalOrigin: $xbgghpexrx,
+			catalogItems: $gfzsbhhrmy,
+			certifications: $mpuncsxceh,
+			natureOrigin: $ltlolyhgme,
+			partOrigin: $eyicbnhbsk,
+			totalTheoreticalStock: 0.055290163
 		);
 
 		$export = $connector->export([$obj]);

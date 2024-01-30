@@ -28,7 +28,7 @@ namespace DataFoodConsortium\Connector;
 
 use \VirtualAssembly\Semantizer\Semanticable;
 
-interface ICustomerCategory extends Semanticable, Groupable, Describable{
+interface ICustomerCategory extends Semanticable, Describable, Groupable{
 
 
 }

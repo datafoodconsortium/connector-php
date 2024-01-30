@@ -48,12 +48,17 @@ class SKOSConcept extends SemanticObject implements ISKOSConcept {
 		
 	}
 
-	public function removePrefLabel(ISKOSLabel $prefLabel): void {
+	public function removeNarrower(ISKOSConcept $narrower): void {
 		throw new Error("Not yet implemented.");
 	}
 	
 
-	public function removeNarrower(ISKOSConcept $narrower): void {
+	public function addNarrower(ISKOSConcept $narrower): void {
+		$this->addSemanticPropertyReference("skos:narrower", $narrower);
+	}
+	
+
+	public function removeBroader(ISKOSConcept $broader): void {
 		throw new Error("Not yet implemented.");
 	}
 	
@@ -68,20 +73,15 @@ class SKOSConcept extends SemanticObject implements ISKOSConcept {
 	}
 	
 
-	public function getNarrower(): Array
-	 {
-		return $this->getSemanticPropertyAll("skos:narrower");
-		
-	}
-	
-
-	public function removeBroader(ISKOSConcept $broader): void {
-		throw new Error("Not yet implemented.");
-	}
-	
-
 	public function addPrefLabel(ISKOSLabel $prefLabel): void {
 		$this->addSemanticPropertyReference("skos:prefLabel", $prefLabel);
+	}
+	
+
+	public function getPrefLabel(): Array
+	 {
+		return $this->getSemanticPropertyAll("skos:prefLabel");
+		
 	}
 	
 
@@ -92,11 +92,6 @@ class SKOSConcept extends SemanticObject implements ISKOSConcept {
 	}
 	
 
-	public function addBroader(ISKOSConcept $broader): void {
-		$this->addSemanticPropertyReference("skos:broader", $broader);
-	}
-	
-
 	public function getScheme(): Array
 	 {
 		return $this->getSemanticPropertyAll("skos:inScheme");
@@ -104,14 +99,19 @@ class SKOSConcept extends SemanticObject implements ISKOSConcept {
 	}
 	
 
-	public function addNarrower(ISKOSConcept $narrower): void {
-		$this->addSemanticPropertyReference("skos:narrower", $narrower);
+	public function removePrefLabel(ISKOSLabel $prefLabel): void {
+		throw new Error("Not yet implemented.");
 	}
 	
 
-	public function getPrefLabel(): Array
+	public function addBroader(ISKOSConcept $broader): void {
+		$this->addSemanticPropertyReference("skos:broader", $broader);
+	}
+	
+
+	public function getNarrower(): Array
 	 {
-		return $this->getSemanticPropertyAll("skos:prefLabel");
+		return $this->getSemanticPropertyAll("skos:narrower");
 		
 	}
 	

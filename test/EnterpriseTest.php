@@ -10,37 +10,46 @@ final class EnterpriseTest extends TestCase {
 	public function testConstructor(): void {
         $connector = new Connector();
 
-		$jcwlpegfrh = array(new Address(connector: $connector, semanticId: "http://base.com/oxiizuwzcs"));
+		
+		$kzpqskyrbq = array(new Address(connector: $connector, semanticId: "http://base.com/bqxqndkgrd"));
 		
 		
-		$bjfgfgciwl = array(new CustomerCategory(connector: $connector, semanticId: "http://base.com/hipwmqzmcq"));
-		$hqcsbsyenv = array(new Catalog(connector: $connector, semanticId: "http://base.com/dfdkxbqbnq"));
-		$vfrfzlzzym = array(new CatalogItem(connector: $connector, semanticId: "http://base.com/ywzuamwbha"));
-		$wtraxnpfqf = array(new SuppliedProduct(connector: $connector, semanticId: "http://base.com/cgjnelgjeu"));
-		$clurmmcsft = array(new TechnicalProduct(connector: $connector, semanticId: "http://base.com/obeyxkmvsy"));
+		$mgbvsrloxl = array(new CustomerCategory(connector: $connector, semanticId: "http://base.com/xxvoitvkoi"));
+		$kudqyecrqt = array(new Catalog(connector: $connector, semanticId: "http://base.com/crfczdjlha"));
+		$cdteefzimx = array(new CatalogItem(connector: $connector, semanticId: "http://base.com/bhaogrxuuv"));
+		$sacaxriday = array(new SuppliedProduct(connector: $connector, semanticId: "http://base.com/kvpzwippld"));
+		$sfowpzxwmu = array(new TechnicalProduct(connector: $connector, semanticId: "http://base.com/wghlxjhgjf"));
+		$wovgeenory = new Person(connector: $connector, semanticId: "http://base.com/sbvugtvtnz");
+		
 
         $obj = new Enterprise(
             connector: $connector,
         	semanticId: "http://example.org/obj",
-        	localizations: $jcwlpegfrh,
-        	description: "wrnseozjmi",
-        	vatNumber: "gixgkhomnl",
-        	customerCategories: $bjfgfgciwl,
-        	catalogs: $hqcsbsyenv,
-        	catalogItems: $vfrfzlzzym,
-        	suppliedProducts: $wtraxnpfqf,
-        	technicalProducts: $clurmmcsft
+        	name: "rtkfdznwiq",
+        	localizations: $kzpqskyrbq,
+        	description: "rdszuxeiwa",
+        	vatNumber: "bkshdbqxqp",
+        	customerCategories: $mgbvsrloxl,
+        	catalogs: $kudqyecrqt,
+        	catalogItems: $cdteefzimx,
+        	suppliedProducts: $sacaxriday,
+        	technicalProducts: $sfowpzxwmu,
+        	mainContact: $wovgeenory,
+        	logo: "vgdrglbenc"
         );
 
         $this->assertSame("http://example.org/obj", $obj->getSemanticId());
-		$this->assertSame($jcwlpegfrh, $obj->getLocalizations());
-		$this->assertSame("wrnseozjmi", $obj->getDescription());
-		$this->assertSame("gixgkhomnl", $obj->getVatNumber());
-		$this->assertSame($bjfgfgciwl, $obj->getCustomerCategories());
-		$this->assertSame($hqcsbsyenv, $obj->getMaintainedCatalogs());
-		$this->assertSame($vfrfzlzzym, $obj->getManagedCatalogItems());
-		$this->assertSame($wtraxnpfqf, $obj->getSuppliedProducts());
-		$this->assertSame($clurmmcsft, $obj->getProposedTechnicalProducts());
+		$this->assertSame("rtkfdznwiq", $obj->getName());
+		$this->assertSame($kzpqskyrbq, $obj->getLocalizations());
+		$this->assertSame("rdszuxeiwa", $obj->getDescription());
+		$this->assertSame("bkshdbqxqp", $obj->getVatNumber());
+		$this->assertSame($mgbvsrloxl, $obj->getCustomerCategories());
+		$this->assertSame($kudqyecrqt, $obj->getMaintainedCatalogs());
+		$this->assertSame($cdteefzimx, $obj->getManagedCatalogItems());
+		$this->assertSame($sacaxriday, $obj->getSuppliedProducts());
+		$this->assertSame($sfowpzxwmu, $obj->getProposedTechnicalProducts());
+		$this->assertSame($wovgeenory, $obj->getMainContact());
+		$this->assertSame("vgdrglbenc", $obj->getLogo());
     }
 
 	public function testGetSet(): void {
@@ -51,45 +60,80 @@ final class EnterpriseTest extends TestCase {
 			semanticId: "http://example.org/obj"
         );
 
-		
-		$zualmsftrg = new CustomerCategory(connector: $connector, semanticId: "http://base.com/qskoykpqbt");
-		$obj->addCustomerCategory($zualmsftrg);
-		$this->assertSame([$zualmsftrg], $obj->getCustomerCategories());
-		
-		
-		$obj->setVatNumber("umpozodwsi");
-		$this->assertSame("umpozodwsi", $obj->getVatNumber());
+		$cgetlzjkzp = new Person(connector: $connector, semanticId: "http://base.com/ydleifprlm");
+		$obj->setMainContact($cgetlzjkzp);
+		$this->assertSame($cgetlzjkzp, $obj->getMainContact());
 		
 		
 		
-		$tdzjudegvf = new Address(connector: $connector, semanticId: "http://base.com/fqjizhuayr");
-		$obj->addLocalization($tdzjudegvf);
-		$this->assertSame([$tdzjudegvf], $obj->getLocalizations());
+		
+		$obj->addWebsite("xrumjrnqyc");
+		$this->assertSame(["xrumjrnqyc"], $obj->getWebsites());
 		
 		
-		$koifclfbir = new CatalogItem(connector: $connector, semanticId: "http://base.com/szeeapvfxc");
-		$obj->manageCatalogItem($koifclfbir);
-		$this->assertSame([$koifclfbir], $obj->getManagedCatalogItems());
+		$qxnbabxowz = new SuppliedProduct(connector: $connector, semanticId: "http://base.com/olyriswclm");
+		$obj->supplyProduct($qxnbabxowz);
+		$this->assertSame([$qxnbabxowz], $obj->getSuppliedProducts());
 		
 		
-		$zkkvzfipcn = new Catalog(connector: $connector, semanticId: "http://base.com/opxnnlhfma");
-		$obj->maintainCatalog($zkkvzfipcn);
-		$this->assertSame([$zkkvzfipcn], $obj->getMaintainedCatalogs());
-		
-		
-		$obj->setDescription("hbvqtvnwee");
-		$this->assertSame("hbvqtvnwee", $obj->getDescription());
+		$obj->setLogo("sdnztzfcvv");
+		$this->assertSame("sdnztzfcvv", $obj->getLogo());
 		
 		
 		
-		$rabmhmguoo = new SuppliedProduct(connector: $connector, semanticId: "http://base.com/kbuujntpgj");
-		$obj->supplyProduct($rabmhmguoo);
-		$this->assertSame([$rabmhmguoo], $obj->getSuppliedProducts());
+		$obj->setName("nnchcgumeg");
+		$this->assertSame("nnchcgumeg", $obj->getName());
 		
 		
-		$pnhvpxesgl = new TechnicalProduct(connector: $connector, semanticId: "http://base.com/nxugqpwwnr");
-		$obj->proposeTechnicalProducts($pnhvpxesgl);
-		$this->assertSame([$pnhvpxesgl], $obj->getProposedTechnicalProducts());
+		
+		$klfjsdomoy = new Catalog(connector: $connector, semanticId: "http://base.com/anvvkplbwv");
+		$obj->maintainCatalog($klfjsdomoy);
+		$this->assertSame([$klfjsdomoy], $obj->getMaintainedCatalogs());
+		
+		
+		$pohontcgyc = new PhoneNumber(connector: $connector, semanticId: "http://base.com/mcsviiejdu");
+		$obj->addPhoneNumber($pohontcgyc);
+		$this->assertSame([$pohontcgyc], $obj->getPhoneNumbers());
+		
+		
+		$obj->setVatNumber("uaowldcoka");
+		$this->assertSame("uaowldcoka", $obj->getVatNumber());
+		
+		
+		
+		$rzilmheocp = new Address(connector: $connector, semanticId: "http://base.com/mpvpkjoswk");
+		$obj->addLocalization($rzilmheocp);
+		$this->assertSame([$rzilmheocp], $obj->getLocalizations());
+		
+		
+		$edygufzlhs = new CustomerCategory(connector: $connector, semanticId: "http://base.com/mwwouepgej");
+		$obj->addCustomerCategory($edygufzlhs);
+		$this->assertSame([$edygufzlhs], $obj->getCustomerCategories());
+		
+		
+		$ldbwlrdjfz = new SocialMedia(connector: $connector, semanticId: "http://base.com/eqljzpbgio");
+		$obj->addSocialMedia($ldbwlrdjfz);
+		$this->assertSame([$ldbwlrdjfz], $obj->getSocialMedias());
+		
+		
+		$vnuwugpuvx = new CatalogItem(connector: $connector, semanticId: "http://base.com/wjfkglyaol");
+		$obj->manageCatalogItem($vnuwugpuvx);
+		$this->assertSame([$vnuwugpuvx], $obj->getManagedCatalogItems());
+		
+		
+		
+		$obj->addEmailAddress("vrureviual");
+		$this->assertSame(["vrureviual"], $obj->getEmails());
+		
+		
+		$obj->setDescription("nyoudlrhux");
+		$this->assertSame("nyoudlrhux", $obj->getDescription());
+		
+		
+		
+		$mticdsfsof = new TechnicalProduct(connector: $connector, semanticId: "http://base.com/tarsuntikb");
+		$obj->proposeTechnicalProducts($mticdsfsof);
+		$this->assertSame([$mticdsfsof], $obj->getProposedTechnicalProducts());
 		
     }
 
@@ -99,14 +143,17 @@ final class EnterpriseTest extends TestCase {
 		$obj = new Enterprise(
 		    connector: $connector,
 			semanticId: "http://example.org/obj",
-			localizations: $jcwlpegfrh,
-			description: "wrnseozjmi",
-			vatNumber: "gixgkhomnl",
-			customerCategories: $bjfgfgciwl,
-			catalogs: $hqcsbsyenv,
-			catalogItems: $vfrfzlzzym,
-			suppliedProducts: $wtraxnpfqf,
-			technicalProducts: $clurmmcsft
+			name: "rtkfdznwiq",
+			localizations: $kzpqskyrbq,
+			description: "rdszuxeiwa",
+			vatNumber: "bkshdbqxqp",
+			customerCategories: $mgbvsrloxl,
+			catalogs: $kudqyecrqt,
+			catalogItems: $cdteefzimx,
+			suppliedProducts: $sacaxriday,
+			technicalProducts: $sfowpzxwmu,
+			mainContact: $wovgeenory,
+			logo: "vgdrglbenc"
 		);
 
 		$export = $connector->export([$obj]);

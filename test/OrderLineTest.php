@@ -11,24 +11,24 @@ final class OrderLineTest extends TestCase {
         $connector = new Connector();
 
 		
-		$wlfoppsrte = new Price(connector: $connector);
-		$rrtrdcxveu = new Offer(connector: $connector, semanticId: "http://base.com/pnkzctxtab");
-		$gpjqyqpaek = new Order(connector: $connector, semanticId: "http://base.com/lcpxuvuvcg");
+		$duwaaekjjl = new Price(connector: $connector);
+		$dsdhleisly = new Offer(connector: $connector, semanticId: "http://base.com/emvigihbuq");
+		$bwzkhvtrvf = new Order(connector: $connector, semanticId: "http://base.com/zbpzricjrq");
 
         $obj = new OrderLine(
             connector: $connector,
         	semanticId: "http://example.org/obj",
-        	quantity: 0.27075833,
-        	price: $wlfoppsrte,
-        	offer: $rrtrdcxveu,
-        	order: $gpjqyqpaek
+        	quantity: 0.75411695,
+        	price: $duwaaekjjl,
+        	offer: $dsdhleisly,
+        	order: $bwzkhvtrvf
         );
 
         $this->assertSame("http://example.org/obj", $obj->getSemanticId());
-		$this->assertSame(0.27075833, $obj->getQuantity());
-		$this->assertSame(true, $obj->getPrice()->equals($wlfoppsrte));
-		$this->assertSame($rrtrdcxveu, $obj->getOffer());
-		$this->assertSame($gpjqyqpaek, $obj->getOrder());
+		$this->assertSame(0.75411695, $obj->getQuantity());
+		$this->assertSame(true, $obj->getPrice()->equals($duwaaekjjl));
+		$this->assertSame($dsdhleisly, $obj->getOffer());
+		$this->assertSame($bwzkhvtrvf, $obj->getOrder());
     }
 
 	public function testGetSet(): void {
@@ -39,29 +39,29 @@ final class OrderLineTest extends TestCase {
 			semanticId: "http://example.org/obj"
         );
 
-		
-		$obj->setDescription("ubaqvtxfoa");
-		$this->assertSame("ubaqvtxfoa", $obj->getDescription());
-		
-		
-		$esaeidweww = new Order(connector: $connector, semanticId: "http://base.com/wbqcgxfbhl");
-		$obj->setOrder($esaeidweww);
-		$this->assertSame($esaeidweww, $obj->getOrder());
-		
-		
-		$lbtjgjdkwl = new Price(connector: $connector);
-		$obj->setPrice($lbtjgjdkwl);
-		$this->assertSame(true, $obj->getPrice()->equals($lbtjgjdkwl));
-		
-		
-		$mzykcymtte = new Offer(connector: $connector, semanticId: "http://base.com/trjukahubn");
-		$obj->setOffer($mzykcymtte);
-		$this->assertSame($mzykcymtte, $obj->getOffer());
+		$ztizeeqtas = new Price(connector: $connector);
+		$obj->setPrice($ztizeeqtas);
+		$this->assertSame(true, $obj->getPrice()->equals($ztizeeqtas));
 		
 		
 		
-		$obj->setQuantity(0.3769526);
-		$this->assertSame(0.3769526, $obj->getQuantity());
+		$obj->setQuantity(0.61820567);
+		$this->assertSame(0.61820567, $obj->getQuantity());
+		
+		
+		$gxstckchny = new Offer(connector: $connector, semanticId: "http://base.com/gbyxogemlv");
+		$obj->setOffer($gxstckchny);
+		$this->assertSame($gxstckchny, $obj->getOffer());
+		
+		
+		
+		$obj->setDescription("okamkhievb");
+		$this->assertSame("okamkhievb", $obj->getDescription());
+		
+		
+		$tplhxnohpu = new Order(connector: $connector, semanticId: "http://base.com/baspqejfdk");
+		$obj->setOrder($tplhxnohpu);
+		$this->assertSame($tplhxnohpu, $obj->getOrder());
 		
 		
     }
@@ -72,10 +72,10 @@ final class OrderLineTest extends TestCase {
 		$obj = new OrderLine(
 		    connector: $connector,
 			semanticId: "http://example.org/obj",
-			quantity: 0.27075833,
-			price: $wlfoppsrte,
-			offer: $rrtrdcxveu,
-			order: $gpjqyqpaek
+			quantity: 0.75411695,
+			price: $duwaaekjjl,
+			offer: $dsdhleisly,
+			order: $bwzkhvtrvf
 		);
 
 		$export = $connector->export([$obj]);

@@ -51,15 +51,13 @@ class SaleSession extends SemanticObject implements ISaleSession {
 		if ($offers) { foreach ($offers as $e) { $this->addOffer($e); } }
 	}
 
-	public function setBeginDate(string $beginDate): void {
-		$this->setSemanticProperty("dfc-b:beginDate", $beginDate);
+	public function setEndDate(string $endDate): void {
+		$this->setSemanticProperty("dfc-b:endDate", $endDate);
 	}
 	
 
-	public function getEndDate(): string 
-	 {
-		return $this->getSemanticProperty("dfc-b:endDate");
-		
+	public function setBeginDate(string $beginDate): void {
+		$this->setSemanticProperty("dfc-b:beginDate", $beginDate);
 	}
 	
 
@@ -70,10 +68,19 @@ class SaleSession extends SemanticObject implements ISaleSession {
 	}
 	
 
-	public function setEndDate(string $endDate): void {
-		$this->setSemanticProperty("dfc-b:endDate", $endDate);
+	public function getEndDate(): string 
+	 {
+		return $this->getSemanticProperty("dfc-b:endDate");
+		
 	}
 	
+	public function getOffers(): Array
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:lists");
+		
+	}
+	
+
 	public function setQuantity(float $quantity): void {
 		$this->setSemanticProperty("dfc-b:quantity", $quantity);
 	}
@@ -82,13 +89,6 @@ class SaleSession extends SemanticObject implements ISaleSession {
 	public function getQuantity(): float 
 	 {
 		return $this->getSemanticProperty("dfc-b:quantity");
-		
-	}
-	
-
-	public function getOffers(): Array
-	 {
-		return $this->getSemanticPropertyAll("dfc-b:lists");
 		
 	}
 	

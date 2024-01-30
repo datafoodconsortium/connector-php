@@ -10,19 +10,19 @@ final class QuantitativeValueTest extends TestCase {
 	public function testConstructor(): void {
         $connector = new Connector();
 
-		$nzeohghuwt = new SKOSConcept(connector: $connector, semanticId: "http://base.com/qmsluaibyc");
+		$xhpcbgybdy = new SKOSConcept(connector: $connector, semanticId: "http://base.com/ozujneenri");
 		
 
         $obj = new QuantitativeValue(
             connector: $connector,
         	
-        	unit: $nzeohghuwt,
-        	value: 0.014794886
+        	unit: $xhpcbgybdy,
+        	value: 0.7560219
         );
 
         
-		$this->assertSame($nzeohghuwt, $obj->getQuantityUnit());
-		$this->assertSame(0.014794886, $obj->getQuantityValue());
+		$this->assertSame($xhpcbgybdy, $obj->getQuantityUnit());
+		$this->assertSame(0.7560219, $obj->getQuantityValue());
     }
 
 	public function testGetSet(): void {
@@ -32,14 +32,14 @@ final class QuantitativeValueTest extends TestCase {
             connector: $connector
         );
 
+		$fyaodtszzb = new SKOSConcept(connector: $connector, semanticId: "http://base.com/shuhxsuhqs");
+		$obj->setQuantityUnit($fyaodtszzb);
+		$this->assertSame($fyaodtszzb, $obj->getQuantityUnit());
 		
-		$obj->setQuantityValue(0.29035258);
-		$this->assertSame(0.29035258, $obj->getQuantityValue());
 		
 		
-		$ppqjedxgpk = new SKOSConcept(connector: $connector, semanticId: "http://base.com/jfeafwvsqr");
-		$obj->setQuantityUnit($ppqjedxgpk);
-		$this->assertSame($ppqjedxgpk, $obj->getQuantityUnit());
+		$obj->setQuantityValue(0.36073792);
+		$this->assertSame(0.36073792, $obj->getQuantityValue());
 		
 		
     }
@@ -50,8 +50,8 @@ final class QuantitativeValueTest extends TestCase {
 		$obj = new QuantitativeValue(
 		    connector: $connector,
 			
-			unit: $nzeohghuwt,
-			value: 0.014794886
+			unit: $xhpcbgybdy,
+			value: 0.7560219
 		);
 
 		$export = $connector->export([$obj]);

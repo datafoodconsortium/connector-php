@@ -51,26 +51,19 @@ class OrderLine extends SemanticObject implements IOrderLine {
 		if ($order) { $this->setOrder($order); }
 	}
 
-	public function setDescription(string $description): void {
-		$this->setSemanticProperty("dfc-b:description", $description);
-	}
-	
-
 	public function getDescription(): string 
 	 {
 		return $this->getSemanticProperty("dfc-b:description");
 		
 	}
 	
-	public function getOrder(): IOrder
-	 {
-		return $this->getSemanticProperty("dfc-b:partOf");
-		
+
+	public function setDescription(string $description): void {
+		$this->setSemanticProperty("dfc-b:description", $description);
 	}
 	
-
-	public function setOrder(IOrder $order): void {
-		$this->setSemanticProperty("dfc-b:partOf", $order);
+	public function setQuantity(float $quantity): void {
+		$this->setSemanticProperty("dfc-b:quantity", $quantity);
 	}
 	
 
@@ -79,15 +72,8 @@ class OrderLine extends SemanticObject implements IOrderLine {
 	}
 	
 
-	public function setQuantity(float $quantity): void {
-		$this->setSemanticProperty("dfc-b:quantity", $quantity);
-	}
-	
-
-	public function getQuantity(): float 
-	 {
-		return $this->getSemanticProperty("dfc-b:quantity");
-		
+	public function setOrder(IOrder $order): void {
+		$this->setSemanticProperty("dfc-b:partOf", $order);
 	}
 	
 
@@ -103,9 +89,23 @@ class OrderLine extends SemanticObject implements IOrderLine {
 	}
 	
 
+	public function getOrder(): IOrder
+	 {
+		return $this->getSemanticProperty("dfc-b:partOf");
+		
+	}
+	
+
 	public function getOffer(): IOffer
 	 {
 		return $this->getSemanticProperty("dfc-b:concerns");
+		
+	}
+	
+
+	public function getQuantity(): float 
+	 {
+		return $this->getSemanticProperty("dfc-b:quantity");
 		
 	}
 	

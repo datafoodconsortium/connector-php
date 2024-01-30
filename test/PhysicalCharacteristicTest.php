@@ -10,22 +10,22 @@ final class PhysicalCharacteristicTest extends TestCase {
 	public function testConstructor(): void {
         $connector = new Connector();
 
-		$wxlzohugue = new SKOSConcept(connector: $connector, semanticId: "http://base.com/uurkplynly");
+		$bamhsdxybq = new SKOSConcept(connector: $connector, semanticId: "http://base.com/zfoeqjvfdc");
 		
-		$qxegzaxmky = new SKOSConcept(connector: $connector, semanticId: "http://base.com/jeggppdwdr");
+		$kjjkyqwhif = new SKOSConcept(connector: $connector, semanticId: "http://base.com/asyqavquzy");
 
         $obj = new PhysicalCharacteristic(
             connector: $connector,
         	
-        	unit: $wxlzohugue,
-        	value: 0.94739044,
-        	physicalDimension: $qxegzaxmky
+        	unit: $bamhsdxybq,
+        	value: 0.052755952,
+        	physicalDimension: $kjjkyqwhif
         );
 
         
-		$this->assertSame($wxlzohugue, $obj->getQuantityUnit());
-		$this->assertSame(0.94739044, $obj->getQuantityValue());
-		$this->assertSame($qxegzaxmky, $obj->getQuantityDimension());
+		$this->assertSame($bamhsdxybq, $obj->getQuantityUnit());
+		$this->assertSame(0.052755952, $obj->getQuantityValue());
+		$this->assertSame($kjjkyqwhif, $obj->getQuantityDimension());
     }
 
 	public function testGetSet(): void {
@@ -35,19 +35,19 @@ final class PhysicalCharacteristicTest extends TestCase {
             connector: $connector
         );
 
-		$qbsyssgqzi = new SKOSConcept(connector: $connector, semanticId: "http://base.com/jqydrylnum");
-		$obj->setQuantityDimension($qbsyssgqzi);
-		$this->assertSame($qbsyssgqzi, $obj->getQuantityDimension());
+		$mbrpqhezou = new SKOSConcept(connector: $connector, semanticId: "http://base.com/luvqamocch");
+		$obj->setQuantityDimension($mbrpqhezou);
+		$this->assertSame($mbrpqhezou, $obj->getQuantityDimension());
+		
+		
+		$fyaodtszzb = new SKOSConcept(connector: $connector, semanticId: "http://base.com/shuhxsuhqs");
+		$obj->setQuantityUnit($fyaodtszzb);
+		$this->assertSame($fyaodtszzb, $obj->getQuantityUnit());
 		
 		
 		
-		$obj->setQuantityValue(0.29035258);
-		$this->assertSame(0.29035258, $obj->getQuantityValue());
-		
-		
-		$ppqjedxgpk = new SKOSConcept(connector: $connector, semanticId: "http://base.com/jfeafwvsqr");
-		$obj->setQuantityUnit($ppqjedxgpk);
-		$this->assertSame($ppqjedxgpk, $obj->getQuantityUnit());
+		$obj->setQuantityValue(0.36073792);
+		$this->assertSame(0.36073792, $obj->getQuantityValue());
 		
 		
     }
@@ -58,9 +58,9 @@ final class PhysicalCharacteristicTest extends TestCase {
 		$obj = new PhysicalCharacteristic(
 		    connector: $connector,
 			
-			unit: $wxlzohugue,
-			value: 0.94739044,
-			physicalDimension: $qxegzaxmky
+			unit: $bamhsdxybq,
+			value: 0.052755952,
+			physicalDimension: $kjjkyqwhif
 		);
 
 		$export = $connector->export([$obj]);

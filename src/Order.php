@@ -33,7 +33,7 @@ class Order extends SemanticObject implements IOrder {
 	
 	protected IConnector $connector;
 
-	public function __construct(IConnector $connector, string $semanticId = null, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, string $number = null, string $date = null, ISaleSession $saleSession = null, IAgent $client = null, Array $lines = null, bool $doNotStore = false) {
+	public function __construct(IConnector $connector, string $semanticId = null, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, string $number = null, string $date = null, ISaleSession $saleSession = null, IAgent $client = null, Array $lines = null, ISKOSConcept $fulfilmentStatus = null, ISKOSConcept $orderStatus = null, ISKOSConcept $paymentStatus = null, bool $doNotStore = false) {
 		$type = "dfc-b:Order";
 		
 		if ($other) {
@@ -50,7 +50,77 @@ class Order extends SemanticObject implements IOrder {
 		if ($saleSession) { $this->setSaleSession($saleSession); }
 		if ($client) { $this->setClient($client); }
 		if ($lines) { foreach ($lines as $e) { $this->addLine($e); } }
+		if ($fulfilmentStatus) { $this->setFulfilmentStatus($fulfilmentStatus); }
+		if ($orderStatus) { $this->setOrderStatus($orderStatus); }
+		if ($paymentStatus) { $this->setPaymentStatus($paymentStatus); }
 	}
+
+	public function getNumber(): string 
+	 {
+		return $this->getSemanticProperty("dfc-b:orderNumber");
+		
+	}
+	
+
+	public function getOrderStatus(): ISKOSConcept
+	 {
+		return $this->getSemanticProperty("dfc-b:hasOrderStatus");
+		
+	}
+	
+
+	public function setSaleSession(ISaleSession $saleSession): void {
+		$this->setSemanticProperty("dfc-b:belongsTo", $saleSession);
+	}
+	
+
+	public function addLine(IOrderLine $line): void {
+		$this->addSemanticPropertyReference("dfc-b:hasPart", $line);
+	}
+	
+
+	public function getFulfilmentStatus(): ISKOSConcept
+	 {
+		return $this->getSemanticProperty("dfc-b:hasFulfilmentStatus");
+		
+	}
+	
+
+	public function setDate(string $date): void {
+		$this->setSemanticProperty("dfc-b:date", $date);
+	}
+	
+
+	public function getPaymentStatus(): ISKOSConcept
+	 {
+		return $this->getSemanticProperty("dfc-b:hasPaymentStatus");
+		
+	}
+	
+
+	public function getSaleSession(): ISaleSession
+	 {
+		return $this->getSemanticProperty("dfc-b:belongsTo");
+		
+	}
+	
+
+	public function getClient(): IAgent
+	 {
+		return $this->getSemanticProperty("dfc-b:orderedBy");
+		
+	}
+	
+
+	public function setFulfilmentStatus(ISKOSConcept $fulfilmentState): void {
+		$this->setSemanticProperty("dfc-b:hasFulfilmentStatus", $fulfilmentState);
+	}
+	
+
+	public function setNumber(string $number): void {
+		$this->setSemanticProperty("dfc-b:orderNumber", $number);
+	}
+	
 
 	public function setClient(IAgent $client): void {
 		$this->setSemanticProperty("dfc-b:orderedBy", $client);
@@ -64,8 +134,8 @@ class Order extends SemanticObject implements IOrder {
 	}
 	
 
-	public function setSaleSession(ISaleSession $saleSession): void {
-		$this->setSemanticProperty("dfc-b:belongsTo", $saleSession);
+	public function setOrderStatus(ISKOSConcept $orderState): void {
+		$this->setSemanticProperty("dfc-b:hasOrderStatus", $orderState);
 	}
 	
 
@@ -76,39 +146,8 @@ class Order extends SemanticObject implements IOrder {
 	}
 	
 
-	public function getSaleSession(): ISaleSession
-	 {
-		return $this->getSemanticProperty("dfc-b:belongsTo");
-		
-	}
-	
-
-	public function addLine(IOrderLine $line): void {
-		$this->addSemanticPropertyReference("dfc-b:hasPart", $line);
-	}
-	
-
-	public function getNumber(): string 
-	 {
-		return $this->getSemanticProperty("dfc-b:orderNumber");
-		
-	}
-	
-
-	public function setDate(string $date): void {
-		$this->setSemanticProperty("dfc-b:date", $date);
-	}
-	
-
-	public function getClient(): IAgent
-	 {
-		return $this->getSemanticProperty("dfc-b:orderedBy");
-		
-	}
-	
-
-	public function setNumber(string $number): void {
-		$this->setSemanticProperty("dfc-b:orderNumber", $number);
+	public function setPaymentStatus(ISKOSConcept $paymentState): void {
+		$this->setSemanticProperty("dfc-b:hasPaymentStatus", $paymentState);
 	}
 	
 

@@ -12,23 +12,26 @@ final class PersonTest extends TestCase {
 
 		
 		
-		$vossdsghma = array(new Address(connector: $connector, semanticId: "http://base.com/nvzffatmox"));
-		$totrttazhr = array(new Enterprise(connector: $connector, semanticId: "http://base.com/wfwoolswgi"));
+		$qmbexdddna = array(new Address(connector: $connector, semanticId: "http://base.com/jbrwedlpib"));
+		$mjfjjexvuo = array(new Enterprise(connector: $connector, semanticId: "http://base.com/xjatanekbs"));
+		
 
         $obj = new Person(
             connector: $connector,
         	semanticId: "http://example.org/obj",
-        	firstName: "drfcjejasa",
-        	lastName: "qcgyhecggo",
-        	localizations: $vossdsghma,
-        	organizations: $totrttazhr
+        	firstName: "vqpizrpcqa",
+        	lastName: "pourhlarmp",
+        	localizations: $qmbexdddna,
+        	organizations: $mjfjjexvuo,
+        	logo: "jvbtjvmnmu"
         );
 
         $this->assertSame("http://example.org/obj", $obj->getSemanticId());
-		$this->assertSame("drfcjejasa", $obj->getFirstName());
-		$this->assertSame("qcgyhecggo", $obj->getLastName());
-		$this->assertSame($vossdsghma, $obj->getLocalizations());
-		$this->assertSame($totrttazhr, $obj->getAffiliatedOrganizations());
+		$this->assertSame("vqpizrpcqa", $obj->getFirstName());
+		$this->assertSame("pourhlarmp", $obj->getLastName());
+		$this->assertSame($qmbexdddna, $obj->getLocalizations());
+		$this->assertSame($mjfjjexvuo, $obj->getAffiliatedOrganizations());
+		$this->assertSame("jvbtjvmnmu", $obj->getLogo());
     }
 
 	public function testGetSet(): void {
@@ -40,24 +43,49 @@ final class PersonTest extends TestCase {
         );
 
 		
-		$obj->setLastName("oqylsxojfp");
-		$this->assertSame("oqylsxojfp", $obj->getLastName());
+		$pohontcgyc = new PhoneNumber(connector: $connector, semanticId: "http://base.com/mcsviiejdu");
+		$obj->addPhoneNumber($pohontcgyc);
+		$this->assertSame([$pohontcgyc], $obj->getPhoneNumbers());
+		
+		
+		$obj->setLastName("hmohsftzla");
+		$this->assertSame("hmohsftzla", $obj->getLastName());
 		
 		
 		
-		$obj->setFirstName("bnoirputvh");
-		$this->assertSame("bnoirputvh", $obj->getFirstName());
+		
+		$obj->addWebsite("xrumjrnqyc");
+		$this->assertSame(["xrumjrnqyc"], $obj->getWebsites());
+		
+		
+		$obj->setFirstName("jurveomasi");
+		$this->assertSame("jurveomasi", $obj->getFirstName());
 		
 		
 		
-		$tdzjudegvf = new Address(connector: $connector, semanticId: "http://base.com/fqjizhuayr");
-		$obj->addLocalization($tdzjudegvf);
-		$this->assertSame([$tdzjudegvf], $obj->getLocalizations());
+		$rzilmheocp = new Address(connector: $connector, semanticId: "http://base.com/mpvpkjoswk");
+		$obj->addLocalization($rzilmheocp);
+		$this->assertSame([$rzilmheocp], $obj->getLocalizations());
 		
 		
-		$bvgoncrhga = new Enterprise(connector: $connector, semanticId: "http://base.com/nzmltjciui");
-		$obj->affiliateTo($bvgoncrhga);
-		$this->assertSame([$bvgoncrhga], $obj->getAffiliatedOrganizations());
+		$ldbwlrdjfz = new SocialMedia(connector: $connector, semanticId: "http://base.com/eqljzpbgio");
+		$obj->addSocialMedia($ldbwlrdjfz);
+		$this->assertSame([$ldbwlrdjfz], $obj->getSocialMedias());
+		
+		
+		
+		$obj->addEmailAddress("vrureviual");
+		$this->assertSame(["vrureviual"], $obj->getEmails());
+		
+		
+		$rlsftqlanz = new Enterprise(connector: $connector, semanticId: "http://base.com/trbxfukljn");
+		$obj->affiliateTo($rlsftqlanz);
+		$this->assertSame([$rlsftqlanz], $obj->getAffiliatedOrganizations());
+		
+		
+		$obj->setLogo("sdnztzfcvv");
+		$this->assertSame("sdnztzfcvv", $obj->getLogo());
+		
 		
     }
 
@@ -67,10 +95,11 @@ final class PersonTest extends TestCase {
 		$obj = new Person(
 		    connector: $connector,
 			semanticId: "http://example.org/obj",
-			firstName: "drfcjejasa",
-			lastName: "qcgyhecggo",
-			localizations: $vossdsghma,
-			organizations: $totrttazhr
+			firstName: "vqpizrpcqa",
+			lastName: "pourhlarmp",
+			localizations: $qmbexdddna,
+			organizations: $mjfjjexvuo,
+			logo: "jvbtjvmnmu"
 		);
 
 		$export = $connector->export([$obj]);

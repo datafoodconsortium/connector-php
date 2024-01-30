@@ -14,21 +14,30 @@ final class AddressTest extends TestCase {
 		
 		
 		
+		
+		
+		
 
         $obj = new Address(
             connector: $connector,
         	semanticId: "http://example.org/obj",
-        	street: "ytjlqvwhdb",
-        	postalCode: "fzlfqvpjmg",
-        	city: "xhzddzffrq",
-        	country: "ekgwpxbqui"
+        	street: "tbneptjcgc",
+        	postalCode: "vrfxzaweeq",
+        	city: "xsecwjlcbc",
+        	country: "xwuixpfmmw",
+        	latitude: 0.49003834,
+        	longitude: 0.07631463,
+        	region: "frfngbbbyf"
         );
 
         $this->assertSame("http://example.org/obj", $obj->getSemanticId());
-		$this->assertSame("ytjlqvwhdb", $obj->getStreet());
-		$this->assertSame("fzlfqvpjmg", $obj->getPostalCode());
-		$this->assertSame("xhzddzffrq", $obj->getCity());
-		$this->assertSame("ekgwpxbqui", $obj->getCountry());
+		$this->assertSame("tbneptjcgc", $obj->getStreet());
+		$this->assertSame("vrfxzaweeq", $obj->getPostalCode());
+		$this->assertSame("xsecwjlcbc", $obj->getCity());
+		$this->assertSame("xwuixpfmmw", $obj->getCountry());
+		$this->assertSame(0.49003834, $obj->getLatitude());
+		$this->assertSame(0.07631463, $obj->getLongitude());
+		$this->assertSame("frfngbbbyf", $obj->getRegion());
     }
 
 	public function testGetSet(): void {
@@ -40,23 +49,38 @@ final class AddressTest extends TestCase {
         );
 
 		
-		$obj->setCountry("rxbczrqwmu");
-		$this->assertSame("rxbczrqwmu", $obj->getCountry());
+		$obj->setCountry("jwjhmcvinn");
+		$this->assertSame("jwjhmcvinn", $obj->getCountry());
 		
 		
 		
-		$obj->setCity("ndxwcndzmn");
-		$this->assertSame("ndxwcndzmn", $obj->getCity());
+		$obj->setLatitude(0.23915607);
+		$this->assertSame(0.23915607, $obj->getLatitude());
 		
 		
 		
-		$obj->setStreet("rsqcwzjcot");
-		$this->assertSame("rsqcwzjcot", $obj->getStreet());
+		$obj->setLongitude(0.8051377);
+		$this->assertSame(0.8051377, $obj->getLongitude());
 		
 		
 		
-		$obj->setPostalCode("ukbhxiejre");
-		$this->assertSame("ukbhxiejre", $obj->getPostalCode());
+		$obj->setRegion("yliteagizt");
+		$this->assertSame("yliteagizt", $obj->getRegion());
+		
+		
+		
+		$obj->setStreet("nfcyubgvjo");
+		$this->assertSame("nfcyubgvjo", $obj->getStreet());
+		
+		
+		
+		$obj->setCity("hlmuhgxius");
+		$this->assertSame("hlmuhgxius", $obj->getCity());
+		
+		
+		
+		$obj->setPostalCode("bdmeczkbeg");
+		$this->assertSame("bdmeczkbeg", $obj->getPostalCode());
 		
 		
     }
@@ -67,10 +91,13 @@ final class AddressTest extends TestCase {
 		$obj = new Address(
 		    connector: $connector,
 			semanticId: "http://example.org/obj",
-			street: "ytjlqvwhdb",
-			postalCode: "fzlfqvpjmg",
-			city: "xhzddzffrq",
-			country: "ekgwpxbqui"
+			street: "tbneptjcgc",
+			postalCode: "vrfxzaweeq",
+			city: "xsecwjlcbc",
+			country: "xwuixpfmmw",
+			latitude: 0.49003834,
+			longitude: 0.07631463,
+			region: "frfngbbbyf"
 		);
 
 		$export = $connector->export([$obj]);

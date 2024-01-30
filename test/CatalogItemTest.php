@@ -10,28 +10,28 @@ final class CatalogItemTest extends TestCase {
 	public function testConstructor(): void {
         $connector = new Connector();
 
-		$rscpehygvw = new TechnicalProduct(connector: $connector, semanticId: "http://base.com/mpitzkyypr");
+		$pwhypamumj = new TechnicalProduct(connector: $connector, semanticId: "http://base.com/vnudmypalt");
 		
 		
-		$jdxrzjcdzy = array(new Offer(connector: $connector, semanticId: "http://base.com/kilvwqpptj"));
-		$ggwrwbozmp = array(new Catalog(connector: $connector, semanticId: "http://base.com/wzaotbxmdn"));
+		$nsthrenvvm = array(new Offer(connector: $connector, semanticId: "http://base.com/waipxzeycd"));
+		$pqdsrxhdpx = array(new Catalog(connector: $connector, semanticId: "http://base.com/yuhbvzgbgs"));
 
         $obj = new CatalogItem(
             connector: $connector,
         	semanticId: "http://example.org/obj",
-        	product: $rscpehygvw,
-        	sku: "pwjdinhwna",
-        	stockLimitation: 0.9194131,
-        	offers: $jdxrzjcdzy,
-        	catalogs: $ggwrwbozmp
+        	product: $pwhypamumj,
+        	sku: "hbpepupivf",
+        	stockLimitation: 0.47980082,
+        	offers: $nsthrenvvm,
+        	catalogs: $pqdsrxhdpx
         );
 
         $this->assertSame("http://example.org/obj", $obj->getSemanticId());
-		$this->assertSame($rscpehygvw, $obj->getOfferedProduct());
-		$this->assertSame("pwjdinhwna", $obj->getSku());
-		$this->assertSame(0.9194131, $obj->getStockLimitation());
-		$this->assertSame($jdxrzjcdzy, $obj->getOfferers());
-		$this->assertSame($ggwrwbozmp, $obj->getCatalogs());
+		$this->assertSame($pwhypamumj, $obj->getOfferedProduct());
+		$this->assertSame("hbpepupivf", $obj->getSku());
+		$this->assertSame(0.47980082, $obj->getStockLimitation());
+		$this->assertSame($nsthrenvvm, $obj->getOfferers());
+		$this->assertSame($pqdsrxhdpx, $obj->getCatalogs());
     }
 
 	public function testGetSet(): void {
@@ -42,30 +42,30 @@ final class CatalogItemTest extends TestCase {
 			semanticId: "http://example.org/obj"
         );
 
-		
-		$zvpnfqdumq = new Offer(connector: $connector, semanticId: "http://base.com/csvsbnhfnv");
-		$obj->addOffer($zvpnfqdumq);
-		$this->assertSame([$zvpnfqdumq], $obj->getOfferers());
-		
-		
-		$obj->setSku("xtbgnwatmh");
-		$this->assertSame("xtbgnwatmh", $obj->getSku());
+		$orjltxmvvn = new TechnicalProduct(connector: $connector, semanticId: "http://base.com/lppapgjcfh");
+		$obj->setOfferedProduct($orjltxmvvn);
+		$this->assertSame($orjltxmvvn, $obj->getOfferedProduct());
 		
 		
 		
-		$ghskayelxy = new Catalog(connector: $connector, semanticId: "http://base.com/xatcarqwaf");
-		$obj->registerInCatalog($ghskayelxy);
-		$this->assertSame([$ghskayelxy], $obj->getCatalogs());
+		$obj->setSku("ltkfxappks");
+		$this->assertSame("ltkfxappks", $obj->getSku());
 		
 		
-		$obj->setStockLimitation(0.4993915);
-		$this->assertSame(0.4993915, $obj->getStockLimitation());
+		
+		$obj->setStockLimitation(0.9789771);
+		$this->assertSame(0.9789771, $obj->getStockLimitation());
 		
 		
-		$martbkogri = new TechnicalProduct(connector: $connector, semanticId: "http://base.com/obkfkudkex");
-		$obj->setOfferedProduct($martbkogri);
-		$this->assertSame($martbkogri, $obj->getOfferedProduct());
 		
+		$tfwxuvusrx = new Offer(connector: $connector, semanticId: "http://base.com/wvjccqdral");
+		$obj->addOffer($tfwxuvusrx);
+		$this->assertSame([$tfwxuvusrx], $obj->getOfferers());
+		
+		
+		$dfwnptbsfc = new Catalog(connector: $connector, semanticId: "http://base.com/zomuhfoghx");
+		$obj->registerInCatalog($dfwnptbsfc);
+		$this->assertSame([$dfwnptbsfc], $obj->getCatalogs());
 		
     }
 
@@ -75,11 +75,11 @@ final class CatalogItemTest extends TestCase {
 		$obj = new CatalogItem(
 		    connector: $connector,
 			semanticId: "http://example.org/obj",
-			product: $rscpehygvw,
-			sku: "pwjdinhwna",
-			stockLimitation: 0.9194131,
-			offers: $jdxrzjcdzy,
-			catalogs: $ggwrwbozmp
+			product: $pwhypamumj,
+			sku: "hbpepupivf",
+			stockLimitation: 0.47980082,
+			offers: $nsthrenvvm,
+			catalogs: $pqdsrxhdpx
 		);
 
 		$export = $connector->export([$obj]);

@@ -12,20 +12,20 @@ final class PriceTest extends TestCase {
 
 		
 		
-		$enptqdodxm = new SKOSConcept(connector: $connector, semanticId: "http://base.com/yglpcsixri");
+		$erlwlememz = new SKOSConcept(connector: $connector, semanticId: "http://base.com/tsdupkxdcg");
 
         $obj = new Price(
             connector: $connector,
         	
-        	value: 0.90167844,
-        	vatRate: 0.30123216,
-        	unit: $enptqdodxm
+        	value: 0.8230021,
+        	vatRate: 0.72790813,
+        	unit: $erlwlememz
         );
 
         
-		$this->assertSame(0.90167844, $obj->getQuantityValue());
-		$this->assertSame(0.30123216, $obj->getVatRate());
-		$this->assertSame($enptqdodxm, $obj->getQuantityUnit());
+		$this->assertSame(0.8230021, $obj->getQuantityValue());
+		$this->assertSame(0.72790813, $obj->getVatRate());
+		$this->assertSame($erlwlememz, $obj->getQuantityUnit());
     }
 
 	public function testGetSet(): void {
@@ -35,19 +35,19 @@ final class PriceTest extends TestCase {
             connector: $connector
         );
 
-		$gjcnuubkmj = new SKOSConcept(connector: $connector, semanticId: "http://base.com/jfeafwvsqr");
-		$obj->setQuantityUnit($gjcnuubkmj);
-		$this->assertSame($gjcnuubkmj, $obj->getQuantityUnit());
+		
+		$obj->setQuantityValue(0.81751704);
+		$this->assertSame(0.81751704, $obj->getQuantityValue());
 		
 		
 		
-		$obj->setVatRate(0.5887325);
-		$this->assertSame(0.5887325, $obj->getVatRate());
+		$obj->setVatRate(0.9766349);
+		$this->assertSame(0.9766349, $obj->getVatRate());
 		
 		
-		
-		$obj->setQuantityValue(0.49470216);
-		$this->assertSame(0.49470216, $obj->getQuantityValue());
+		$yvfduutpwg = new SKOSConcept(connector: $connector, semanticId: "http://base.com/shuhxsuhqs");
+		$obj->setQuantityUnit($yvfduutpwg);
+		$this->assertSame($yvfduutpwg, $obj->getQuantityUnit());
 		
 		
     }
@@ -58,9 +58,9 @@ final class PriceTest extends TestCase {
 		$obj = new Price(
 		    connector: $connector,
 			
-			value: 0.90167844,
-			vatRate: 0.30123216,
-			unit: $enptqdodxm
+			value: 0.8230021,
+			vatRate: 0.72790813,
+			unit: $erlwlememz
 		);
 
 		$export = $connector->export([$obj]);

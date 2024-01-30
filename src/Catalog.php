@@ -49,6 +49,13 @@ class Catalog extends SemanticObject implements ICatalog {
 		if ($items) { foreach ($items as $e) { $this->addItem($e); } }
 	}
 
+	public function getItems(): Array
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:lists");
+		
+	}
+	
+
 	public function removeItem(ICatalogItem $item): void {
 		throw new Error("Not yet implemented.");
 	}
@@ -61,13 +68,6 @@ class Catalog extends SemanticObject implements ICatalog {
 
 	public function addMaintainer(IEnterprise $maintainer): void {
 		$this->addSemanticPropertyReference("dfc-b:maintainedBy", $maintainer);
-	}
-	
-
-	public function getItems(): Array
-	 {
-		return $this->getSemanticPropertyAll("dfc-b:lists");
-		
 	}
 	
 

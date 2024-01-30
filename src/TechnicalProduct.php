@@ -47,42 +47,15 @@ class TechnicalProduct extends DefinedProduct implements ITechnicalProduct {
 		
 	}
 
-	public function setDescription(string $description): void {
-		$this->setSemanticProperty("dfc-b:description", $description);
-	}
-	
-
-	public function getDescription(): string 
-	 {
-		return $this->getSemanticProperty("dfc-b:description");
-		
-	}
-	
-	public function addCatalogItem(ICatalogItem $catalogItem): void {
-		$this->addSemanticPropertyReference("dfc-b:referencedBy", $catalogItem);
-	}
-	
-
 	public function getCatalogItems(): Array
 	 {
 		return $this->getSemanticPropertyAll("dfc-b:referencedBy");
 		
 	}
 	
-	public function addCertification(ISKOSConcept $certification): void {
-		$this->addSemanticPropertyReference("dfc-b:hasCertification", $certification);
-	}
-	
 
-	public function getCertifications(): Array
-	 {
-		return $this->getSemanticPropertyAll("dfc-b:hasCertification");
-		
-	}
-	
-
-	public function removeCertification(ISKOSConcept $certification): void {
-		throw new Error("Not yet implemented.");
+	public function addCatalogItem(ICatalogItem $catalogItem): void {
+		$this->addSemanticPropertyReference("dfc-b:referencedBy", $catalogItem);
 	}
 	
 	public function getNutrientCharacteristics(): Array
@@ -92,8 +65,71 @@ class TechnicalProduct extends DefinedProduct implements ITechnicalProduct {
 	}
 	
 
+	public function addAllergenCharacteristic(IAllergenCharacteristic $allergenCharacteristic): void {
+		$this->addSemanticPropertyReference("dfc-b:hasAllergenCharacteristic", $allergenCharacteristic);
+	}
+	
+
+	public function removeNatureOrigin(ISKOSConcept $natureOrigin): void {
+		throw new Error("Not yet implemented.");
+	}
+	
+
+	public function setUsageOrStorageConditions(string $usageOrStorageConditions): void {
+		$this->setSemanticProperty("dfc-b:usageOrStorageCondition", $usageOrStorageConditions);
+	}
+	
+
+	public function setAlcoholPercentage(float $alcoholPercentage): void {
+		$this->setSemanticProperty("dfc-b:alcoholPercentage", $alcoholPercentage);
+	}
+	
+
+	public function addPartOrigin(ISKOSConcept $partOrigin): void {
+		$this->addSemanticPropertyReference("dfc-b:hasPartOrigin", $partOrigin);
+	}
+	
+
+	public function removePartOrigin(ISKOSConcept $partOrigin): void {
+		throw new Error("Not yet implemented.");
+	}
+	
+
+	public function getNatureOrigin(): Array
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:hasNatureOrigin");
+		
+	}
+	
+
+	public function getGeographicalOrigin(): ISKOSConcept
+	 {
+		return $this->getSemanticProperty("dfc-b:hasGeographicalOrigin");
+		
+	}
+	
+
+	public function getUsageOrStorageConditions(): string 
+	 {
+		return $this->getSemanticProperty("dfc-b:usageOrStorageCondition");
+		
+	}
+	
+
 	public function setGeographicalOrigin(ISKOSConcept $geographicalOrigin): void {
 		$this->setSemanticProperty("dfc-b:hasGeographicalOrigin", $geographicalOrigin);
+	}
+	
+
+	public function removeAllergenCharacteristic(IAllergenCharacteristic $allergenCharacteristic): void {
+		throw new Error("Not yet implemented.");
+	}
+	
+
+	public function getPartOrigin(): Array
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:hasPartOrigin");
+		
 	}
 	
 
@@ -101,6 +137,40 @@ class TechnicalProduct extends DefinedProduct implements ITechnicalProduct {
 	 {
 		return $this->getSemanticProperty("dfc-b:alcoholPercentage");
 		
+	}
+	
+
+	public function addNatureOrigin(ISKOSConcept $natureOrigin): void {
+		$this->addSemanticPropertyReference("dfc-b:hasNatureOrigin", $natureOrigin);
+	}
+	
+
+	public function removePhysicalCharacteristic(IPhysicalCharacteristic $physicalCharacteristic): void {
+		throw new Error("Not yet implemented.");
+	}
+	
+
+	public function getPhysicalCharacteristics(): Array
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:hasPhysicalCharacteristic");
+		
+	}
+	
+
+	public function getAllergenCharacteristics(): Array
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:hasAllergenCharacteristic");
+		
+	}
+	
+
+	public function addNutrientCharacteristic(INutrientCharacteristic $nutrientCharacteristic): void {
+		$this->addSemanticPropertyReference("dfc-b:hasNutrientCharacteristic", $nutrientCharacteristic);
+	}
+	
+
+	public function removeNutrientCharacteristic(INutrientCharacteristic $nutrientCharacteristic): void {
+		throw new Error("Not yet implemented.");
 	}
 	
 
@@ -120,101 +190,31 @@ class TechnicalProduct extends DefinedProduct implements ITechnicalProduct {
 		$this->addSemanticPropertyReference("dfc-b:hasPhysicalCharacteristic", $physicalCharacteristic);
 	}
 	
+	public function getDescription(): string 
+	 {
+		return $this->getSemanticProperty("dfc-b:description");
+		
+	}
+	
 
-	public function removePartOrigin(ISKOSConcept $partOrigin): void {
+	public function setDescription(string $description): void {
+		$this->setSemanticProperty("dfc-b:description", $description);
+	}
+	
+	public function getCertifications(): Array
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:hasCertification");
+		
+	}
+	
+
+	public function removeCertification(ISKOSConcept $certification): void {
 		throw new Error("Not yet implemented.");
 	}
 	
 
-	public function addNatureOrigin(ISKOSConcept $natureOrigin): void {
-		$this->addSemanticPropertyReference("dfc-b:hasNatureOrigin", $natureOrigin);
-	}
-	
-
-	public function removeNutrientCharacteristic(INutrientCharacteristic $nutrientCharacteristic): void {
-		throw new Error("Not yet implemented.");
-	}
-	
-
-	public function getPartOrigin(): Array
-	 {
-		return $this->getSemanticPropertyAll("dfc-b:hasPartOrigin");
-		
-	}
-	
-
-	public function setAlcoholPercentage(float $alcoholPercentage): void {
-		$this->setSemanticProperty("dfc-b:alcoholPercentage", $alcoholPercentage);
-	}
-	
-
-	public function removePhysicalCharacteristic(IPhysicalCharacteristic $physicalCharacteristic): void {
-		throw new Error("Not yet implemented.");
-	}
-	
-
-	public function getAllergenCharacteristics(): Array
-	 {
-		return $this->getSemanticPropertyAll("dfc-b:hasAllergenCharacteristic");
-		
-	}
-	
-
-	public function setUsageOrStorageConditions(string $usageOrStorageConditions): void {
-		$this->setSemanticProperty("dfc-b:usageOrStorageCondition", $usageOrStorageConditions);
-	}
-	
-
-	public function addAllergenCharacteristic(IAllergenCharacteristic $allergenCharacteristic): void {
-		$this->addSemanticPropertyReference("dfc-b:hasAllergenCharacteristic", $allergenCharacteristic);
-	}
-	
-
-	public function removeNatureOrigin(ISKOSConcept $natureOrigin): void {
-		throw new Error("Not yet implemented.");
-	}
-	
-
-	public function removeAllergenCharacteristic(IAllergenCharacteristic $allergenCharacteristic): void {
-		throw new Error("Not yet implemented.");
-	}
-	
-
-	public function getPhysicalCharacteristics(): Array
-	 {
-		return $this->getSemanticPropertyAll("dfc-b:hasPhysicalCharacteristic");
-		
-	}
-	
-
-	public function addNutrientCharacteristic(INutrientCharacteristic $nutrientCharacteristic): void {
-		$this->addSemanticPropertyReference("dfc-b:hasNutrientCharacteristic", $nutrientCharacteristic);
-	}
-	
-
-	public function addPartOrigin(ISKOSConcept $partOrigin): void {
-		$this->addSemanticPropertyReference("dfc-b:hasPartOrigin", $partOrigin);
-	}
-	
-
-	public function getGeographicalOrigin(): ISKOSConcept
-	 {
-		return $this->getSemanticProperty("dfc-b:hasGeographicalOrigin");
-		
-	}
-	
-
-	public function getNatureOrigin(): Array
-	 {
-		return $this->getSemanticPropertyAll("dfc-b:hasNatureOrigin");
-		
-	}
-	
-
-	public function getUsageOrStorageConditions(): string 
-	 {
-		return $this->getSemanticProperty("dfc-b:usageOrStorageCondition");
-		
+	public function addCertification(ISKOSConcept $certification): void {
+		$this->addSemanticPropertyReference("dfc-b:hasCertification", $certification);
 	}
 	
 	public function getName(): string 

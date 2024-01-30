@@ -28,7 +28,7 @@ namespace DataFoodConsortium\Connector;
 
 use \VirtualAssembly\Semantizer\Semanticable;
 
-interface IOffer extends Semanticable, Stockable, Payable, Marketable{
+interface IOffer extends Semanticable, Stockable, Marketable, Payable{
 
 
 }

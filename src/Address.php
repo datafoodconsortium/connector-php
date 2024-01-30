@@ -33,7 +33,7 @@ class Address extends SemanticObject implements IAddress {
 	
 	protected IConnector $connector;
 
-	public function __construct(IConnector $connector, string $semanticId = null, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, string $street = null, string $postalCode = null, string $city = null, string $country = null, bool $doNotStore = false) {
+	public function __construct(IConnector $connector, string $semanticId = null, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, string $street = null, string $postalCode = null, string $city = null, string $country = null, float $latitude = null, float $longitude = null, string $region = null, bool $doNotStore = false) {
 		$type = "dfc-b:Address";
 		
 		if ($other) {
@@ -49,41 +49,18 @@ class Address extends SemanticObject implements IAddress {
 		if ($postalCode) { $this->setPostalCode($postalCode); }
 		if ($city) { $this->setCity($city); }
 		if ($country) { $this->setCountry($country); }
+		if ($latitude || $latitude === 0) { $this->setLatitude($latitude); }
+		if ($longitude || $longitude === 0) { $this->setLongitude($longitude); }
+		if ($region) { $this->setRegion($region); }
 	}
-
-	public function getCity(): string 
-	 {
-		return $this->getSemanticProperty("dfc-b:hasCity");
-		
-	}
-	
-
-	public function setPostalCode(string $postalCode): void {
-		$this->setSemanticProperty("dfc-b:hasPostalCode", $postalCode);
-	}
-	
-
-	public function getPostalCode(): string 
-	 {
-		return $this->getSemanticProperty("dfc-b:hasPostalCode");
-		
-	}
-	
-
-	public function setStreet(string $street): void {
-		$this->setSemanticProperty("dfc-b:hasStreet", $street);
-	}
-	
 
 	public function setCountry(string $country): void {
 		$this->setSemanticProperty("dfc-b:hasCountry", $country);
 	}
 	
 
-	public function getStreet(): string 
-	 {
-		return $this->getSemanticProperty("dfc-b:hasStreet");
-		
+	public function setCity(string $city): void {
+		$this->setSemanticProperty("dfc-b:hasCity", $city);
 	}
 	
 
@@ -94,8 +71,70 @@ class Address extends SemanticObject implements IAddress {
 	}
 	
 
-	public function setCity(string $city): void {
-		$this->setSemanticProperty("dfc-b:hasCity", $city);
+	public function setPostalCode(string $postalCode): void {
+		$this->setSemanticProperty("dfc-b:hasPostalCode", $postalCode);
+	}
+	
+
+	public function setLongitude(float $longitude): void {
+		$this->setSemanticProperty("dfc-b:longitude", $longitude);
+	}
+	
+
+	public function getLatitude(): float 
+	 {
+		return $this->getSemanticProperty("dfc-b:latitude");
+		
+	}
+	
+
+	public function setStreet(string $street): void {
+		$this->setSemanticProperty("dfc-b:hasStreet", $street);
+	}
+	
+
+	public function getCity(): string 
+	 {
+		return $this->getSemanticProperty("dfc-b:hasCity");
+		
+	}
+	
+
+	public function getStreet(): string 
+	 {
+		return $this->getSemanticProperty("dfc-b:hasStreet");
+		
+	}
+	
+
+	public function getPostalCode(): string 
+	 {
+		return $this->getSemanticProperty("dfc-b:hasPostalCode");
+		
+	}
+	
+
+	public function setRegion(string $region): void {
+		$this->setSemanticProperty("dfc-b:region", $region);
+	}
+	
+
+	public function getRegion(): string 
+	 {
+		return $this->getSemanticProperty("dfc-b:region");
+		
+	}
+	
+
+	public function setLatitude(float $latitude): void {
+		$this->setSemanticProperty("dfc-b:latitude", $latitude);
+	}
+	
+
+	public function getLongitude(): float 
+	 {
+		return $this->getSemanticProperty("dfc-b:longitude");
+		
 	}
 	
 

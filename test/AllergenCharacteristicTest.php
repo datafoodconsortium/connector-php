@@ -10,22 +10,22 @@ final class AllergenCharacteristicTest extends TestCase {
 	public function testConstructor(): void {
         $connector = new Connector();
 
-		$nuvtggzehc = new SKOSConcept(connector: $connector, semanticId: "http://base.com/cwoizillmw");
+		$kpsmwlmbre = new SKOSConcept(connector: $connector, semanticId: "http://base.com/jnnxlenrzy");
 		
-		$iofjjqkkoa = new SKOSConcept(connector: $connector, semanticId: "http://base.com/gbkmqbzxrb");
+		$dxuzlcoake = new SKOSConcept(connector: $connector, semanticId: "http://base.com/fpndnkazrb");
 
         $obj = new AllergenCharacteristic(
             connector: $connector,
         	
-        	unit: $nuvtggzehc,
-        	value: 0.39204526,
-        	allergenDimension: $iofjjqkkoa
+        	unit: $kpsmwlmbre,
+        	value: 0.32792687,
+        	allergenDimension: $dxuzlcoake
         );
 
         
-		$this->assertSame($nuvtggzehc, $obj->getQuantityUnit());
-		$this->assertSame(0.39204526, $obj->getQuantityValue());
-		$this->assertSame($iofjjqkkoa, $obj->getQuantityDimension());
+		$this->assertSame($kpsmwlmbre, $obj->getQuantityUnit());
+		$this->assertSame(0.32792687, $obj->getQuantityValue());
+		$this->assertSame($dxuzlcoake, $obj->getQuantityDimension());
     }
 
 	public function testGetSet(): void {
@@ -35,19 +35,19 @@ final class AllergenCharacteristicTest extends TestCase {
             connector: $connector
         );
 
-		$xexqhaycwk = new SKOSConcept(connector: $connector, semanticId: "http://base.com/ivbweuqpvv");
-		$obj->setQuantityDimension($xexqhaycwk);
-		$this->assertSame($xexqhaycwk, $obj->getQuantityDimension());
+		$fyaodtszzb = new SKOSConcept(connector: $connector, semanticId: "http://base.com/shuhxsuhqs");
+		$obj->setQuantityUnit($fyaodtszzb);
+		$this->assertSame($fyaodtszzb, $obj->getQuantityUnit());
 		
 		
 		
-		$obj->setQuantityValue(0.29035258);
-		$this->assertSame(0.29035258, $obj->getQuantityValue());
+		$obj->setQuantityValue(0.36073792);
+		$this->assertSame(0.36073792, $obj->getQuantityValue());
 		
 		
-		$ppqjedxgpk = new SKOSConcept(connector: $connector, semanticId: "http://base.com/jfeafwvsqr");
-		$obj->setQuantityUnit($ppqjedxgpk);
-		$this->assertSame($ppqjedxgpk, $obj->getQuantityUnit());
+		$xrrwmtvonc = new SKOSConcept(connector: $connector, semanticId: "http://base.com/gaxoppgpda");
+		$obj->setQuantityDimension($xrrwmtvonc);
+		$this->assertSame($xrrwmtvonc, $obj->getQuantityDimension());
 		
 		
     }
@@ -58,9 +58,9 @@ final class AllergenCharacteristicTest extends TestCase {
 		$obj = new AllergenCharacteristic(
 		    connector: $connector,
 			
-			unit: $nuvtggzehc,
-			value: 0.39204526,
-			allergenDimension: $iofjjqkkoa
+			unit: $kpsmwlmbre,
+			value: 0.32792687,
+			allergenDimension: $dxuzlcoake
 		);
 
 		$export = $connector->export([$obj]);

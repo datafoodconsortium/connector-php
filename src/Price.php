@@ -50,29 +50,6 @@ class Price extends SemanticObjectAnonymous implements IPrice {
 		if ($unit) { $this->setQuantityUnit($unit); }
 	}
 
-	public function setQuantityValue(float $quantityValue): void {
-		$this->setSemanticProperty("dfc-b:value", $quantityValue);
-	}
-	
-
-	public function getQuantityValue(): float 
-	 {
-		return $this->getSemanticProperty("dfc-b:value");
-		
-	}
-	
-
-	public function setQuantityUnit(ISKOSConcept $quantityUnit): void {
-		$this->setSemanticProperty("dfc-b:hasUnit", $quantityUnit);
-	}
-	
-
-	public function getQuantityUnit(): ISKOSConcept
-	 {
-		return $this->getSemanticProperty("dfc-b:hasUnit");
-		
-	}
-	
 	public function setVatRate(float $vatRate): void {
 		$this->setSemanticProperty("dfc-b:VATrate", $vatRate);
 	}
@@ -82,6 +59,29 @@ class Price extends SemanticObjectAnonymous implements IPrice {
 	 {
 		return $this->getSemanticProperty("dfc-b:VATrate");
 		
+	}
+	
+	public function getQuantityValue(): float 
+	 {
+		return $this->getSemanticProperty("dfc-b:value");
+		
+	}
+	
+
+	public function getQuantityUnit(): ISKOSConcept
+	 {
+		return $this->getSemanticProperty("dfc-b:hasUnit");
+		
+	}
+	
+
+	public function setQuantityValue(float $quantityValue): void {
+		$this->setSemanticProperty("dfc-b:value", $quantityValue);
+	}
+	
+
+	public function setQuantityUnit(ISKOSConcept $quantityUnit): void {
+		$this->setSemanticProperty("dfc-b:hasUnit", $quantityUnit);
 	}
 	
 

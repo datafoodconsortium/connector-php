@@ -30,11 +30,11 @@ use \VirtualAssembly\Semantizer\Semanticable;
 
 interface Dialable {
 
-	public function getNumber(): int 
+	public function getNumber(): string 
 	;
 	public function getCountryCode(): int 
 	;
-	public function setNumber(int $number): void;
+	public function setNumber(string $number): void;
 	public function setCountryCode(int $countryCode): void;
 
 }

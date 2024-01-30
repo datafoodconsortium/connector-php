@@ -48,15 +48,15 @@ class CustomerCategory extends SemanticObject implements ICustomerCategory {
 		if ($description) { $this->setDescription($description); }
 	}
 
-	public function setDescription(string $description): void {
-		$this->setSemanticProperty("dfc-b:description", $description);
-	}
-	
-
 	public function getDescription(): string 
 	 {
 		return $this->getSemanticProperty("dfc-b:description");
 		
+	}
+	
+
+	public function setDescription(string $description): void {
+		$this->setSemanticProperty("dfc-b:description", $description);
 	}
 	
 

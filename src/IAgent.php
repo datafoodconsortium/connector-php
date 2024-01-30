@@ -28,7 +28,10 @@ namespace DataFoodConsortium\Connector;
 
 use \VirtualAssembly\Semantizer\Semanticable;
 
-interface IAgent extends Semanticable, Identifiable{
+interface IAgent extends Semanticable, WebsiteOwner, PhoneNumberOwner, AddressOwner, SocialMediaOwner, EmailOwner{
 
+	public function getLogo(): string 
+	;
+	public function setLogo(string $logo): void;
 
 }

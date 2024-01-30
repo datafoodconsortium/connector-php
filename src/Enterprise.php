@@ -29,10 +29,10 @@ namespace DataFoodConsortium\Connector;
 use \VirtualAssembly\Semantizer\SemanticObject;
 use \VirtualAssembly\Semantizer\Semanticable;
 
-class Enterprise extends Agent implements ProductSupplier, IEnterprise, Onboardable {
+class Enterprise extends Agent implements IEnterprise, ProductSupplier, Onboardable, ManagedByMainContact {
 	
 
-	public function __construct(IConnector $connector, string $semanticId = null, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, Array $localizations = null, string $description = null, string $vatNumber = null, Array $customerCategories = null, Array $catalogs = null, Array $catalogItems = null, Array $suppliedProducts = null, Array $technicalProducts = null, bool $doNotStore = false) {
+	public function __construct(IConnector $connector, string $semanticId = null, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, string $name = null, Array $localizations = null, string $description = null, string $vatNumber = null, Array $customerCategories = null, Array $catalogs = null, Array $catalogItems = null, Array $suppliedProducts = null, Array $technicalProducts = null, IPerson $mainContact = null, string $logo = null, bool $doNotStore = false) {
 		$type = "dfc-b:Enterprise";
 		
 		if ($other) {
@@ -40,10 +40,11 @@ class Enterprise extends Agent implements ProductSupplier, IEnterprise, Onboarda
 			if (!$other->isSemanticTypeOf($type))
 				throw new Error("Can't create the semantic object of type " . $type . " from a copy: the copy is of type " . $other->getSemanticType() . ".");
 		}
-		else { parent::__construct(connector: $connector, semanticId: $semanticId, resource: $resource, semanticType: $type, localizations: $localizations, doNotStore: $doNotStore); }
+		else { parent::__construct(connector: $connector, semanticId: $semanticId, resource: $resource, semanticType: $type, localizations: $localizations, logo: $logo, doNotStore: $doNotStore); }
 		
 		
 		
+		if ($name) { $this->setName($name); }
 		if ($description) { $this->setDescription($description); }
 		if ($vatNumber) { $this->setVatNumber($vatNumber); }
 		if ($customerCategories) { foreach ($customerCategories as $e) { $this->addCustomerCategory($e); } }
@@ -51,19 +52,9 @@ class Enterprise extends Agent implements ProductSupplier, IEnterprise, Onboarda
 		if ($catalogItems) { foreach ($catalogItems as $e) { $this->manageCatalogItem($e); } }
 		if ($suppliedProducts) { foreach ($suppliedProducts as $e) { $this->supplyProduct($e); } }
 		if ($technicalProducts) { foreach ($technicalProducts as $e) { $this->proposeTechnicalProducts($e); } }
+		if ($mainContact) { $this->setMainContact($mainContact); }
 	}
 
-	public function getVatNumber(): string 
-	 {
-		return $this->getSemanticProperty("dfc-b:VATnumber");
-		
-	}
-	
-
-	public function setVatNumber(string $vatNumber): void {
-		$this->setSemanticProperty("dfc-b:VATnumber", $vatNumber);
-	}
-	
 	public function maintainCatalog(ICatalog $catalog): void {
 		$this->addSemanticPropertyReference("dfc-b:maintains", $catalog);
 	}
@@ -80,26 +71,42 @@ class Enterprise extends Agent implements ProductSupplier, IEnterprise, Onboarda
 		throw new Error("Not yet implemented.");
 	}
 	
-	public function setDescription(string $description): void {
-		$this->setSemanticProperty("dfc-b:hasDescription", $description);
+	public function addCustomerCategory(ICustomerCategory $customerCategory): void {
+		$this->addSemanticPropertyReference("dfc-b:defines", $customerCategory);
 	}
 	
 
-	public function getDescription(): string 
-	 {
-		return $this->getSemanticProperty("dfc-b:hasDescription");
-		
-	}
-	
 	public function getCustomerCategories(): Array
 	 {
 		return $this->getSemanticPropertyAll("dfc-b:defines");
 		
 	}
 	
+	public function getMainContact(): IPerson
+	 {
+		return $this->getSemanticProperty("dfc-b:hasMainContact");
+		
+	}
+	
+	public function removeSocialMedia(ISocialMedia $socialMedia): void {
+		throw new Error("Not yet implemented.");
+	}
+	
 
-	public function addCustomerCategory(ICustomerCategory $customerCategory): void {
-		$this->addSemanticPropertyReference("dfc-b:defines", $customerCategory);
+	public function addSocialMedia(ISocialMedia $socialMedia): void {
+		$this->addSemanticPropertyReference("dfc-b:hasSocialMedia", $socialMedia);
+	}
+	
+	public function getEmails(): Array 
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:email");
+		
+	}
+	
+	public function getSocialMedias(): Array
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:hasSocialMedia");
+		
 	}
 	
 	public function getSuppliedProducts(): Array
@@ -109,20 +116,15 @@ class Enterprise extends Agent implements ProductSupplier, IEnterprise, Onboarda
 	}
 	
 
-	public function supplyProduct(ISuppliedProduct $suppliedProduct): void {
-		$this->addSemanticPropertyReference("dfc-b:supplies", $suppliedProduct);
-	}
-	
-
 	public function unsupplyProduct(ISuppliedProduct $suppliedProduct): void {
 		throw new Error("Not yet implemented.");
 	}
 	
-	public function unproposeTechnicalProducts(ITechnicalProduct $technicalProducts): void {
-		throw new Error("Not yet implemented.");
+
+	public function supplyProduct(ISuppliedProduct $suppliedProduct): void {
+		$this->addSemanticPropertyReference("dfc-b:supplies", $suppliedProduct);
 	}
 	
-
 	public function getProposedTechnicalProducts(): Array
 	 {
 		return $this->getSemanticPropertyAll("dfc-b:proposes");
@@ -134,13 +136,19 @@ class Enterprise extends Agent implements ProductSupplier, IEnterprise, Onboarda
 		$this->addSemanticPropertyReference("dfc-b:proposes", $technicalProducts);
 	}
 	
-	public function manageCatalogItem(ICatalogItem $catalogItem): void {
-		$this->addSemanticPropertyReference("dfc-b:manages", $catalogItem);
+
+	public function unproposeTechnicalProducts(ITechnicalProduct $technicalProducts): void {
+		throw new Error("Not yet implemented.");
 	}
 	
-
-	public function unmanageCatalogItem(ICatalogItem $catalogItem): void {
-		throw new Error("Not yet implemented.");
+	public function getPhoneNumbers(): Array
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:hasPhoneNumber");
+		
+	}
+	
+	public function manageCatalogItem(ICatalogItem $catalogItem): void {
+		$this->addSemanticPropertyReference("dfc-b:manages", $catalogItem);
 	}
 	
 
@@ -148,6 +156,96 @@ class Enterprise extends Agent implements ProductSupplier, IEnterprise, Onboarda
 	 {
 		return $this->getSemanticPropertyAll("dfc-b:manages");
 		
+	}
+	
+
+	public function unmanageCatalogItem(ICatalogItem $catalogItem): void {
+		throw new Error("Not yet implemented.");
+	}
+	
+	public function getName(): string 
+	 {
+		return $this->getSemanticProperty("dfc-b:name");
+		
+	}
+	
+
+	public function setName(string $name): void {
+		$this->setSemanticProperty("dfc-b:name", $name);
+	}
+	
+	public function removePhoneNumber(IPhoneNumber $phoneNumber): void {
+		throw new Error("Not yet implemented.");
+	}
+	
+
+	public function addPhoneNumber(IPhoneNumber $phoneNumber): void {
+		$this->addSemanticPropertyReference("dfc-b:hasPhoneNumber", $phoneNumber);
+	}
+	
+	public function getLocalizations(): Array
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:hasAddress");
+		
+	}
+	
+	public function getWebsites(): Array 
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:websitePage");
+		
+	}
+	
+	public function removeWebsite(string $website): void {
+		throw new Error("Not yet implemented.");
+	}
+	
+
+	public function addWebsite(string $website): void {
+		$this->addSemanticPropertyLiteral("dfc-b:websitePage", $website);
+	}
+	
+	public function getDescription(): string 
+	 {
+		return $this->getSemanticProperty("dfc-b:hasDescription");
+		
+	}
+	
+
+	public function setDescription(string $description): void {
+		$this->setSemanticProperty("dfc-b:hasDescription", $description);
+	}
+	
+	public function addEmailAddress(string $emailAddress): void {
+		$this->addSemanticPropertyLiteral("dfc-b:email", $emailAddress);
+	}
+	
+
+	public function removeEmailAddress(string $emailAddress): void {
+		throw new Error("Not yet implemented.");
+	}
+	
+	public function setVatNumber(string $vatNumber): void {
+		$this->setSemanticProperty("dfc-b:VATnumber", $vatNumber);
+	}
+	
+
+	public function getVatNumber(): string 
+	 {
+		return $this->getSemanticProperty("dfc-b:VATnumber");
+		
+	}
+	
+	public function setMainContact(IPerson $mainContact): void {
+		$this->setSemanticProperty("dfc-b:hasMainContact", $mainContact);
+	}
+	
+	public function removeLocalization(IAddress $localization): void {
+		throw new Error("Not yet implemented.");
+	}
+	
+
+	public function addLocalization(IAddress $localization): void {
+		$this->addSemanticPropertyReference("dfc-b:hasAddress", $localization);
 	}
 	
 

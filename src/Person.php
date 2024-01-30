@@ -32,7 +32,7 @@ use \VirtualAssembly\Semantizer\Semanticable;
 class Person extends Agent implements IPerson {
 	
 
-	public function __construct(IConnector $connector, string $semanticId = null, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, string $firstName = null, string $lastName = null, Array $localizations = null, Array $organizations = null, bool $doNotStore = false) {
+	public function __construct(IConnector $connector, string $semanticId = null, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, string $firstName = null, string $lastName = null, Array $localizations = null, Array $organizations = null, string $logo = null, bool $doNotStore = false) {
 		$type = "dfc-b:Person";
 		
 		if ($other) {
@@ -40,7 +40,7 @@ class Person extends Agent implements IPerson {
 			if (!$other->isSemanticTypeOf($type))
 				throw new Error("Can't create the semantic object of type " . $type . " from a copy: the copy is of type " . $other->getSemanticType() . ".");
 		}
-		else { parent::__construct(connector: $connector, semanticId: $semanticId, resource: $resource, semanticType: $type, localizations: $localizations, doNotStore: $doNotStore); }
+		else { parent::__construct(connector: $connector, semanticId: $semanticId, resource: $resource, semanticType: $type, localizations: $localizations, logo: $logo, doNotStore: $doNotStore); }
 		
 		
 		
@@ -49,6 +49,63 @@ class Person extends Agent implements IPerson {
 		if ($organizations) { foreach ($organizations as $e) { $this->affiliateTo($e); } }
 	}
 
+	public function removeSocialMedia(ISocialMedia $socialMedia): void {
+		throw new Error("Not yet implemented.");
+	}
+	
+
+	public function addSocialMedia(ISocialMedia $socialMedia): void {
+		$this->addSemanticPropertyReference("dfc-b:hasSocialMedia", $socialMedia);
+	}
+	
+	public function getEmails(): Array 
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:email");
+		
+	}
+	
+	public function getSocialMedias(): Array
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:hasSocialMedia");
+		
+	}
+	
+	public function getPhoneNumbers(): Array
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:hasPhoneNumber");
+		
+	}
+	
+	public function removePhoneNumber(IPhoneNumber $phoneNumber): void {
+		throw new Error("Not yet implemented.");
+	}
+	
+
+	public function addPhoneNumber(IPhoneNumber $phoneNumber): void {
+		$this->addSemanticPropertyReference("dfc-b:hasPhoneNumber", $phoneNumber);
+	}
+	
+	public function getLocalizations(): Array
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:hasAddress");
+		
+	}
+	
+	public function getWebsites(): Array 
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:websitePage");
+		
+	}
+	
+	public function removeWebsite(string $website): void {
+		throw new Error("Not yet implemented.");
+	}
+	
+
+	public function addWebsite(string $website): void {
+		$this->addSemanticPropertyLiteral("dfc-b:websitePage", $website);
+	}
+	
 	public function getAffiliatedOrganizations(): Array
 	 {
 		return $this->getSemanticPropertyAll("dfc-b:affiliates");
@@ -65,6 +122,15 @@ class Person extends Agent implements IPerson {
 		throw new Error("Not yet implemented.");
 	}
 	
+	public function addEmailAddress(string $emailAddress): void {
+		$this->addSemanticPropertyLiteral("dfc-b:email", $emailAddress);
+	}
+	
+
+	public function removeEmailAddress(string $emailAddress): void {
+		throw new Error("Not yet implemented.");
+	}
+	
 	public function getLastName(): string 
 	 {
 		return $this->getSemanticProperty("dfc-b:familyName");
@@ -72,8 +138,8 @@ class Person extends Agent implements IPerson {
 	}
 	
 
-	public function setFirstName(string $firstName): void {
-		$this->setSemanticProperty("dfc-b:firstName", $firstName);
+	public function setLastName(string $lastName): void {
+		$this->setSemanticProperty("dfc-b:familyName", $lastName);
 	}
 	
 
@@ -84,8 +150,17 @@ class Person extends Agent implements IPerson {
 	}
 	
 
-	public function setLastName(string $lastName): void {
-		$this->setSemanticProperty("dfc-b:familyName", $lastName);
+	public function setFirstName(string $firstName): void {
+		$this->setSemanticProperty("dfc-b:firstName", $firstName);
+	}
+	
+	public function removeLocalization(IAddress $localization): void {
+		throw new Error("Not yet implemented.");
+	}
+	
+
+	public function addLocalization(IAddress $localization): void {
+		$this->addSemanticPropertyReference("dfc-b:hasAddress", $localization);
 	}
 	
 

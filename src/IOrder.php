@@ -45,5 +45,14 @@ interface IOrder extends Semanticable{
 	public function setSaleSession(ISaleSession $saleSession): void;
 	public function setClient(IAgent $client): void;
 	public function addLine(IOrderLine $line): void;
+	public function getFulfilmentStatus(): ISKOSConcept
+	;
+	public function setFulfilmentStatus(ISKOSConcept $fulfilmentState): void;
+	public function getOrderStatus(): ISKOSConcept
+	;
+	public function setOrderStatus(ISKOSConcept $orderState): void;
+	public function getPaymentStatus(): ISKOSConcept
+	;
+	public function setPaymentStatus(ISKOSConcept $paymentState): void;
 
 }

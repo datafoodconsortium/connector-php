@@ -33,19 +33,90 @@ abstract class Agent extends SemanticObject implements IAgent {
 	
 	protected IConnector $connector;
 
-	protected function __construct(IConnector $connector, string $semanticId = null, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, Array $localizations = null, bool $doNotStore = false) {
+	protected function __construct(IConnector $connector, string $semanticId = null, \EasyRdf\Resource $resource = null, string $semanticType = null, Semanticable $other = null, Array $localizations = null, Array $phoneNumbers = null, string $emails = null, string $websites = null, Array $socialMedias = null, string $logo = null, bool $doNotStore = false) {
 		if ($other) { parent::__construct(semantizer: $connector->getSemantizer(), semanticId: $semanticId, resource: $resource, other: $other, doNotStore: $doNotStore); }
 		else { parent::__construct(semantizer: $connector->getSemantizer(), semanticId: $semanticId, resource: $resource, semanticType: $semanticType, doNotStore: $doNotStore); }
 		
 		$this->connector = $connector;
 		
 		if ($localizations) { foreach ($localizations as $e) { $this->addLocalization($e); } }
+		if ($phoneNumbers) { foreach ($phoneNumbers as $e) { $this->addPhoneNumber($e); } }
+		if ($emails) { foreach ($emails as $e) { $this->addEmailAddress($e); } }
+		if ($websites) { foreach ($websites as $e) { $this->addWebsite($e); } }
+		if ($socialMedias) { foreach ($socialMedias as $e) { $this->addSocialMedia($e); } }
+		if ($logo) { $this->setLogo($logo); }
 	}
 
+	public function setLogo(string $logo): void {
+		$this->setSemanticProperty("dfc-b:logo", $logo);
+	}
+	
+
+	public function getLogo(): string 
+	 {
+		return $this->getSemanticProperty("dfc-b:logo");
+		
+	}
+	
 	public function getLocalizations(): Array
 	 {
 		return $this->getSemanticPropertyAll("dfc-b:hasAddress");
 		
+	}
+	
+	public function getWebsites(): Array 
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:websitePage");
+		
+	}
+	
+	public function removeSocialMedia(ISocialMedia $socialMedia): void {
+		throw new Error("Not yet implemented.");
+	}
+	
+
+	public function addSocialMedia(ISocialMedia $socialMedia): void {
+		$this->addSemanticPropertyReference("dfc-b:hasSocialMedia", $socialMedia);
+	}
+	
+	public function removeWebsite(string $website): void {
+		throw new Error("Not yet implemented.");
+	}
+	
+
+	public function addWebsite(string $website): void {
+		$this->addSemanticPropertyLiteral("dfc-b:websitePage", $website);
+	}
+	
+	public function addEmailAddress(string $emailAddress): void {
+		$this->addSemanticPropertyLiteral("dfc-b:email", $emailAddress);
+	}
+	
+
+	public function removeEmailAddress(string $emailAddress): void {
+		throw new Error("Not yet implemented.");
+	}
+	
+	public function getEmails(): Array 
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:email");
+		
+	}
+	
+	public function getSocialMedias(): Array
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:hasSocialMedia");
+		
+	}
+	
+	public function getPhoneNumbers(): Array
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:hasPhoneNumber");
+		
+	}
+	
+	public function removeLocalization(IAddress $localization): void {
+		throw new Error("Not yet implemented.");
 	}
 	
 
@@ -53,9 +124,13 @@ abstract class Agent extends SemanticObject implements IAgent {
 		$this->addSemanticPropertyReference("dfc-b:hasAddress", $localization);
 	}
 	
-
-	public function removeLocalization(IAddress $localization): void {
+	public function removePhoneNumber(IPhoneNumber $phoneNumber): void {
 		throw new Error("Not yet implemented.");
+	}
+	
+
+	public function addPhoneNumber(IPhoneNumber $phoneNumber): void {
+		$this->addSemanticPropertyReference("dfc-b:hasPhoneNumber", $phoneNumber);
 	}
 	
 

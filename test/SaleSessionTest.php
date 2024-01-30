@@ -13,22 +13,22 @@ final class SaleSessionTest extends TestCase {
 		
 		
 		
-		$yhuqjrvbug = array(new Offer(connector: $connector, semanticId: "http://base.com/zughjxmtvb"));
+		$dexguyjnkl = array(new Offer(connector: $connector, semanticId: "http://base.com/lqlcccbyez"));
 
         $obj = new SaleSession(
             connector: $connector,
         	semanticId: "http://example.org/obj",
-        	beginDate: "wygagmtehc",
-        	endDate: "qwkqpkixwi",
-        	quantity: 0.023079395,
-        	offers: $yhuqjrvbug
+        	beginDate: "bslfmuqtnb",
+        	endDate: "cfyddnqhan",
+        	quantity: 0.59352225,
+        	offers: $dexguyjnkl
         );
 
         $this->assertSame("http://example.org/obj", $obj->getSemanticId());
-		$this->assertSame("wygagmtehc", $obj->getBeginDate());
-		$this->assertSame("qwkqpkixwi", $obj->getEndDate());
-		$this->assertSame(0.023079395, $obj->getQuantity());
-		$this->assertSame($yhuqjrvbug, $obj->getOffers());
+		$this->assertSame("bslfmuqtnb", $obj->getBeginDate());
+		$this->assertSame("cfyddnqhan", $obj->getEndDate());
+		$this->assertSame(0.59352225, $obj->getQuantity());
+		$this->assertSame($dexguyjnkl, $obj->getOffers());
     }
 
 	public function testGetSet(): void {
@@ -40,24 +40,24 @@ final class SaleSessionTest extends TestCase {
         );
 
 		
-		$obj->setBeginDate("izqsgjfhxv");
-		$this->assertSame("izqsgjfhxv", $obj->getBeginDate());
+		$obj->setQuantity(0.94330496);
+		$this->assertSame(0.94330496, $obj->getQuantity());
 		
 		
 		
-		$obj->setEndDate("coljzpvbjm");
-		$this->assertSame("coljzpvbjm", $obj->getEndDate());
+		$obj->setBeginDate("hpwnpzurdz");
+		$this->assertSame("hpwnpzurdz", $obj->getBeginDate());
 		
 		
 		
-		$obj->setQuantity(0.12961578);
-		$this->assertSame(0.12961578, $obj->getQuantity());
+		$obj->setEndDate("gxuxexxoif");
+		$this->assertSame("gxuxexxoif", $obj->getEndDate());
 		
 		
 		
-		$ntssraayxd = new Offer(connector: $connector, semanticId: "http://base.com/mjurgbsjwq");
-		$obj->addOffer($ntssraayxd);
-		$this->assertSame([$ntssraayxd], $obj->getOffers());
+		$epdwvlszny = new Offer(connector: $connector, semanticId: "http://base.com/lifhqirdzk");
+		$obj->addOffer($epdwvlszny);
+		$this->assertSame([$epdwvlszny], $obj->getOffers());
 		
     }
 
@@ -67,10 +67,10 @@ final class SaleSessionTest extends TestCase {
 		$obj = new SaleSession(
 		    connector: $connector,
 			semanticId: "http://example.org/obj",
-			beginDate: "wygagmtehc",
-			endDate: "qwkqpkixwi",
-			quantity: 0.023079395,
-			offers: $yhuqjrvbug
+			beginDate: "bslfmuqtnb",
+			endDate: "cfyddnqhan",
+			quantity: 0.59352225,
+			offers: $dexguyjnkl
 		);
 
 		$export = $connector->export([$obj]);

@@ -52,17 +52,46 @@ class CatalogItem extends SemanticObject implements ICatalogItem {
 		if ($catalogs) { foreach ($catalogs as $e) { $this->registerInCatalog($e); } }
 	}
 
-	public function setSku(string $sku): void {
-		$this->setSemanticProperty("dfc-b:sku", $sku);
+	public function registerInCatalog(ICatalog $repository): void {
+		$this->addSemanticPropertyReference("dfc-b:listedIn", $repository);
 	}
 	
 
+	public function getCatalogs(): Array
+	 {
+		return $this->getSemanticPropertyAll("dfc-b:listedIn");
+		
+	}
+	
+	public function getStockLimitation(): float 
+	 {
+		return $this->getSemanticProperty("dfc-b:stockLimitation");
+		
+	}
+	
+
+	public function setStockLimitation(float $stockLimitation): void {
+		$this->setSemanticProperty("dfc-b:stockLimitation", $stockLimitation);
+	}
+	
 	public function getSku(): string 
 	 {
 		return $this->getSemanticProperty("dfc-b:sku");
 		
 	}
 	
+
+	public function setSku(string $sku): void {
+		$this->setSemanticProperty("dfc-b:sku", $sku);
+	}
+	
+	public function getOfferedProduct(): IDefinedProduct
+	 {
+		return $this->getSemanticProperty("dfc-b:references");
+		
+	}
+	
+
 	public function addOffer(IOffer $offer): void {
 		$this->addSemanticPropertyReference("dfc-b:offeredThrough", $offer);
 	}
@@ -77,35 +106,6 @@ class CatalogItem extends SemanticObject implements ICatalogItem {
 
 	public function setOfferedProduct(IDefinedProduct $offeredProduct): void {
 		$this->setSemanticProperty("dfc-b:references", $offeredProduct);
-	}
-	
-
-	public function getOfferedProduct(): IDefinedProduct
-	 {
-		return $this->getSemanticProperty("dfc-b:references");
-		
-	}
-	
-	public function setStockLimitation(float $stockLimitation): void {
-		$this->setSemanticProperty("dfc-b:stockLimitation", $stockLimitation);
-	}
-	
-
-	public function getStockLimitation(): float 
-	 {
-		return $this->getSemanticProperty("dfc-b:stockLimitation");
-		
-	}
-	
-	public function getCatalogs(): Array
-	 {
-		return $this->getSemanticPropertyAll("dfc-b:listedIn");
-		
-	}
-	
-
-	public function registerInCatalog(ICatalog $repository): void {
-		$this->addSemanticPropertyReference("dfc-b:listedIn", $repository);
 	}
 	
 

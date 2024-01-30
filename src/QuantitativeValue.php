@@ -49,11 +49,6 @@ class QuantitativeValue extends SemanticObjectAnonymous implements Quantifiable 
 		if ($value || $value === 0) { $this->setQuantityValue($value); }
 	}
 
-	public function setQuantityValue(float $quantityValue): void {
-		$this->setSemanticProperty("dfc-b:value", $quantityValue);
-	}
-	
-
 	public function getQuantityValue(): float 
 	 {
 		return $this->getSemanticProperty("dfc-b:value");
@@ -61,15 +56,20 @@ class QuantitativeValue extends SemanticObjectAnonymous implements Quantifiable 
 	}
 	
 
-	public function setQuantityUnit(ISKOSConcept $quantityUnit): void {
-		$this->setSemanticProperty("dfc-b:hasUnit", $quantityUnit);
-	}
-	
-
 	public function getQuantityUnit(): ISKOSConcept
 	 {
 		return $this->getSemanticProperty("dfc-b:hasUnit");
 		
+	}
+	
+
+	public function setQuantityValue(float $quantityValue): void {
+		$this->setSemanticProperty("dfc-b:value", $quantityValue);
+	}
+	
+
+	public function setQuantityUnit(ISKOSConcept $quantityUnit): void {
+		$this->setSemanticProperty("dfc-b:hasUnit", $quantityUnit);
 	}
 	
 

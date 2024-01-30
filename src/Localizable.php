@@ -42,5 +42,14 @@ interface Localizable {
 	public function setPostalCode(string $postalCode): void;
 	public function setCity(string $city): void;
 	public function setCountry(string $country): void;
+	public function getLatitude(): float 
+	;
+	public function setLatitude(float $latitude): void;
+	public function getLongitude(): float 
+	;
+	public function setLongitude(float $longitude): void;
+	public function getRegion(): string 
+	;
+	public function setRegion(string $region): void;
 
 }
